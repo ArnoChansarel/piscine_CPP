@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/22 17:36:45 by achansar          #+#    #+#              #
-#    Updated: 2023/07/22 17:38:35 by achansar         ###   ########.fr        #
+#    Updated: 2023/07/24 18:33:40 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ NAME = log
 #ARGUMENTS
 CC = g++
 FLAGS = -Wall -Werror -Wextra
-SRC =	Account \
-		tests
+SRC =	srcs/Account \
+		srcs/tests
 
-# INC = -I includes/
+INC = -I includes/
 CPP_FILES = $(SRC:=.cpp)
 OBJ = $(SRC:=.o)
 
