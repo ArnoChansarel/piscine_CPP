@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 16:59:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/22 15:25:34 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:58:43 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void PhoneBook::askInfos(const char *str, int i, int j)
 
     while (1) {
         std::cout << str;
-        std::getline(std::cin, userInput);  
+        std::getline(std::cin, userInput);
+        if (std::cin.eof()) {
+            std::cout << "EOF flag set" << std::endl;
+            exit(1);
+        }
         if (array[i].setInfo(userInput, j))
             break;
     }
@@ -67,6 +71,10 @@ int PhoneBook::chooseFunc(void)
         std::string userAnswer;
         std::cout << "Please choose a command : ADD, SEARCH, EXIT" << std::endl;
         std::getline(std::cin, userAnswer);
+        if (std::cin.eof()) {
+            std::cout << "EOF flag set" << std::endl;
+            exit(1);
+        }
         if (userAnswer.compare("ADD") == 0)
             this->addContact();
         else if (userAnswer.compare("SEARCH") == 0)

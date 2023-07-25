@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 16:34:36 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/22 15:25:52 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/24 19:14:33 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,3 @@ int main()
     book.chooseFunc();
     return 0;
 }
-
-// how to avoid ^[[A in getline() ?

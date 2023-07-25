@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:05:20 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/22 15:34:03 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:59:45 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ void PhoneBook::getContactIndex(void) const {
     while (true) {
         std::string userAnswer;
         std::getline(std::cin, userAnswer);
+        if (std::cin.eof()) {
+            std::cout << "EOF flag set" << std::endl;
+            exit(1);
+        }
     
         try {
             size_t pos = 0;
