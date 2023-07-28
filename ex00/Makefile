@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 15:34:02 by achansar          #+#    #+#              #
-#    Updated: 2023/07/24 18:57:19 by achansar         ###   ########.fr        #
+#    Updated: 2023/07/28 12:56:46 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ $(CC) $(FLAGS) $(F_V) $(OBJ) -o $(NAME)
 
-.c.o:
+.cpp.o:
 	@ $(CC) $(FLAGS) $(F_V) -c $< -o $@
 
 clean:

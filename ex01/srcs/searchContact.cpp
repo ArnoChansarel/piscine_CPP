@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:05:20 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/25 13:59:45 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:03:05 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void PhoneBook::getContactIndex(void) const {
             std::cout << "EOF flag set" << std::endl;
             exit(1);
         }
-    
+
         try {
             size_t pos = 0;
             int i = std::stoi(userAnswer, &pos);
