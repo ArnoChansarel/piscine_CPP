@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 17:03:30 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/22 15:26:11 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/28 13:28:40 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,36 @@ Contact::~Contact(void)
 
 bool Contact::isalnumerical(std::string str) const {
 
-    for (int i = 0 ; i < str.length() ; i++) {
-        if (!std::isalnum(str[i]) && str[i] != '+')
+    for (size_t i = 0 ; i < str.length() ; i++) {
+        if (!std::isalnum(str[i]))
             return (0);
+    }
+    return (1);
+}
+
+bool Contact::isPhoneNumber(std::string str) const {
+    
+    for (size_t i = 0 ; i < str.length() ; i++) {
+        if (i == 0 && (str[i] == '+' || str[i] == '0'))
+            i++;
+        if (!std::isdigit(str[i]))
+            return (0);
+    }
+    return (1);
+}
+
+bool Contact::setPhoneNumber(std::string str, int j) {
+
+    try {
+        if (isPhoneNumber(str)) {
+            this->info[j] = str;
+        } else {
+            throw(str);
+        }
+    } catch (std::string str) {
+        std::cout << "Please enter a valid phone number. "
+                    << "It should stat with a '0' or a '+'." << std::endl;
+        return(0);
     }
     return (1);
 }
