@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:52:43 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/28 20:45:14 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/31 19:01:45 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ int msg_error(std::string str) {
 
 void    replace(std::string& line, std::string old_s, std::string new_s) {
 
-    size_t size_o = old_s.length();
+    size_t pos = line.find(old_s);
     
-    for (size_t i = 0; i < line.length(); i++) {
+    while (pos!=std::string::npos) {
 
-        if (line.compare(i, size_o, old_s) == 0) {
-            line.erase(i, size_o);
-            line.insert(i, new_s);
-        }
+        line.erase(pos, old_s.size());
+        line.insert(pos, new_s);
+        pos = line.find(old_s, pos + new_s.size());
     }
     return;
 }

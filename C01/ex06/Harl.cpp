@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:22:06 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/29 16:50:50 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/31 19:09:05 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void Harl::complain( std::string level ) {
                     (this->info)();
                 case 2:
                     (this->warning)();
-                case 3:
+                default:
                     (this->error)();
             };
             return;

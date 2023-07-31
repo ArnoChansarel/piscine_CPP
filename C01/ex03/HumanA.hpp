@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 16:35:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/25 18:48:03 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:00:10 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanA {//                                        reference sur weapon
 
     private:
         std::string name;
-        Weapon* weapon;
+        Weapon& weapon;
 };
 
 #endif

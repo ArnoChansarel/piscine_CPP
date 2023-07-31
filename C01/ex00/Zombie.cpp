@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:18:22 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/28 19:49:34 by achansar         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:54:04 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Zombie::Zombie ( std::string name ) : name(name) {
 }
 
 Zombie::~Zombie ( void ) {
+    std::cout << this->name << " has been destroyed." << std::endl;
     return;
 }
 
