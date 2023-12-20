@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 19:52:15 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 15:53:55 by achansar         ###   ########.fr       */
+/*   Created: 2023/12/18 16:07:24 by achansar          #+#    #+#             */
+/*   Updated: 2023/12/19 17:33:06 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class ScavTrap : public ClapTrap
-{
-    public ://                                  ATTENTION : est-ce que les constructeurs sont necessaires ou erreur ?
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap&);
-        ~ScavTrap();
-        ScavTrap& operator=(const ScavTrap&);
-
-        void attack(const std::string& target);
-        void guardGate() const;
+class Cat : public Animal {
+    
+    public:
+        Cat(void);
+        Cat(const Cat&);
+        Cat& operator=(const Cat&);
+        ~Cat(void);
+    
+        void makeSound() const;
+        
+    private:
+        Brain* brain;
 };

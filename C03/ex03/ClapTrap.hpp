@@ -6,13 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 17:44:31 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/18 11:49:08 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:54:55 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream> // access cout << and cin <<
+#include <iostream>
 
 class ClapTrap {
     

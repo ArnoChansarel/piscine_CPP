@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 19:52:15 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 15:53:55 by achansar         ###   ########.fr       */
+/*   Created: 2023/08/11 17:44:28 by achansar          #+#    #+#             */
+/*   Updated: 2023/08/11 20:26:17 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap
-{
-    public ://                                  ATTENTION : est-ce que les constructeurs sont necessaires ou erreur ?
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap&);
-        ~ScavTrap();
-        ScavTrap& operator=(const ScavTrap&);
+int main(void) {
+    
+    ClapTrap Arno("Arno");
+    ScavTrap Baptiste("Baptiste");
+    FragTrap Judas("Judas");
 
-        void attack(const std::string& target);
-        void guardGate() const;
-};
+    Arno.attack("Jospeh");
+    Baptiste.attack("Salomon");
+    Judas.attack("Jesus");
+    
+
+    Arno.takeDamage(9);
+    Baptiste.guardGate();
+    Judas.takeDamage(80);
+    Arno.beRepaired(8);
+    Judas.highFiveGuys();
+    return 0;
+}

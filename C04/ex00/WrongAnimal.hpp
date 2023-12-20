@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 19:52:15 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 15:53:55 by achansar         ###   ########.fr       */
+/*   Created: 2023/12/19 16:14:18 by achansar          #+#    #+#             */
+/*   Updated: 2023/12/19 16:14:20 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class ScavTrap : public ClapTrap
-{
-    public ://                                  ATTENTION : est-ce que les constructeurs sont necessaires ou erreur ?
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap&);
-        ~ScavTrap();
-        ScavTrap& operator=(const ScavTrap&);
+class WrongAnimal {
 
-        void attack(const std::string& target);
-        void guardGate() const;
+    public:
+        WrongAnimal(void);
+        WrongAnimal(const WrongAnimal&);
+        WrongAnimal& operator=(const WrongAnimal&);
+        ~WrongAnimal(void);
+    
+        std::string getType() const;
+        void makeSound() const;
+
+    protected:
+        std::string _type;
 };

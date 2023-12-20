@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 19:52:15 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 15:53:55 by achansar         ###   ########.fr       */
+/*   Created: 2023/12/18 16:18:00 by achansar          #+#    #+#             */
+/*   Updated: 2023/12/20 11:45:58 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class ScavTrap : public ClapTrap
-{
-    public ://                                  ATTENTION : est-ce que les constructeurs sont necessaires ou erreur ?
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap&);
-        ~ScavTrap();
-        ScavTrap& operator=(const ScavTrap&);
+class Dog : public Animal {
+    
+    public:
+        Dog(void);
+        Dog(const Dog&);
+        Dog& operator=(const Dog&);
+        ~Dog(void);
+    
+        void makeSound() const;
+        std::string getBrainIdea(int i) const;
 
-        void attack(const std::string& target);
-        void guardGate() const;
+    private:
+        Brain* brain;
 };

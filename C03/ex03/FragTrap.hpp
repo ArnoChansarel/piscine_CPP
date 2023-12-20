@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 19:52:15 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 15:53:55 by achansar         ###   ########.fr       */
+/*   Created: 2023/08/11 20:13:53 by achansar          #+#    #+#             */
+/*   Updated: 2023/08/12 16:59:12 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
-    public ://                                  ATTENTION : est-ce que les constructeurs sont necessaires ou erreur ?
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap&);
-        ~ScavTrap();
-        ScavTrap& operator=(const ScavTrap&);
+    public :
+        FragTrap();
+        FragTrap(std::string name);
+        FragTrap(const FragTrap&);
+        ~FragTrap();
+        FragTrap& operator=(const FragTrap&);
 
         void attack(const std::string& target);
-        void guardGate() const;
+        void highFiveGuys();
 };

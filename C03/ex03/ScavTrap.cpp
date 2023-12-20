@@ -6,13 +6,18 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:38:23 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/12 16:47:37 by achansar         ###   ########.fr       */
+/*   Updated: 2023/08/12 16:49:05 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 // =========================================================== CONSTRUCTOR
+
+ScavTrap::ScavTrap( void ) : ClapTrap() {
+    std::cout << "ScavTrap default constructor called." << std::endl;
+    return;
+} 
 
 ScavTrap::ScavTrap( std::string n ) {
     _name = n;
