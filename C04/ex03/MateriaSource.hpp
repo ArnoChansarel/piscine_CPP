@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 13:13:14 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/22 19:39:22 by achansar         ###   ########.fr       */
+/*   Created: 2023/12/20 17:47:15 by achansar          #+#    #+#             */
+/*   Updated: 2023/12/22 16:34:30 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "interface/AMateria.hpp"
+#include "interface/IMateriaSource.hpp"
 
-class Animal {
-
+class AMateria;
+class MateriaSource : public IMateriaSource
+{
     public:
-        Animal(void);
-        Animal(const Animal&);
-        Animal& operator=(const Animal&);
-        virtual ~Animal(void);
-    
-        std::string getType() const;
-        virtual void makeSound() const = 0;// purely virtual => becomes an abstract class
+        MateriaSource();
+        MateriaSource(const MateriaSource&);
+        MateriaSource& operator=(const MateriaSource&);
+        ~MateriaSource();
+        
+        void learnMateria(AMateria*);
+        AMateria* createMateria(std::string const & type);
 
-    protected:
-        std::string _type;
+    private:
+        AMateria* _memory[4];
 };

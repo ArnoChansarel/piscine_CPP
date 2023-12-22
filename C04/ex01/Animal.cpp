@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:16:00 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 17:15:08 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:08:49 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ std::string Animal::getType() const {
 void Animal::makeSound() const {
     std::cout << "The " << getType() << " goes BLANK" << std::endl;
     return; 
+}
+
+void Animal::tester() {
+    std::cout << "THIS IS A TEST" << std::endl;
+    return;
 }

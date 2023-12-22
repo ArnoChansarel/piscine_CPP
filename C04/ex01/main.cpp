@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 14:10:04 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/20 12:22:15 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:11:48 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
         delete array[i];
     }
     
-    // Animal tester();
+    // Animal tester;
     system("leaks Animal");
     return 0;
 }

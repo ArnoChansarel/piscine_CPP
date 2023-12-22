@@ -23,7 +23,7 @@ class WrongAnimal {
         ~WrongAnimal(void);
     
         std::string getType() const;
-        void makeSound() const;
+        void makeSound() const;//         not virtual
 
     protected:
         std::string _type;

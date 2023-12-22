@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:20:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 14:24:22 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:35:20 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int                 Fixed::toInt( void ) const {
 // ==================================================================== COMPARATORS
 Fixed &Fixed::operator=(const Fixed& src) {
 
-    this->_value = src.getRawBits();
+    if (this != &src) {
+        this->_value = src.getRawBits();
+    }
     return *this;
 }
 

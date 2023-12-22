@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:18:18 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 17:14:41 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/22 19:32:46 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ Dog::~Dog(void) {
 }
 
 void Dog::makeSound() const {
-        std::cout << "The " << getType() << " goes WAF" << std::endl;
+    std::cout << "The " << getType() << " goes WAF" << std::endl;
     return; 
 }

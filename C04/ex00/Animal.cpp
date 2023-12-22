@@ -6,15 +6,15 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:16:00 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 17:14:32 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:00:25 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal(void) {
-    std::cout << "Animal default constructor called." << std::endl;
-    this->_type = "None";
+    std::cout << " default constructor called." << std::endl;
+    this->_type = "Animal";
     return;
 }
 

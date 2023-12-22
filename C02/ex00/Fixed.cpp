@@ -6,13 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:20:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/04 15:02:35 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:33:58 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-
+// ===================================================================== CONSTRUCTORS
 
 Fixed::Fixed( void ) : _value(0) {
     std::cout << "Default constructor called." << std::endl;
@@ -25,17 +25,21 @@ Fixed::Fixed( const Fixed& src) {
     return;
 }
 
+Fixed &Fixed::operator=(const Fixed& src) {
+    
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &src) {
+        this->_value = src.getRawBits();
+    }
+    return *this;
+}
+
 Fixed::~Fixed( void ) {
     std::cout << "Desructor called." << std::endl;
     return;
 }
 
-Fixed &Fixed::operator=(const Fixed& src) {
-    
-    std::cout << "Copy assignment operator called" << std::endl;
-    this->_value = src.getRawBits();
-    return *this;
-}
+// ===================================================================== MEMBERS FUNCTIONS
 
 int                 Fixed::getRawBits( void ) const {
     std::cout << "getRawBits member function called" << std::endl;
