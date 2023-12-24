@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 20:14:49 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/12 16:49:58 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/24 17:00:26 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FragTrap::FragTrap( void ) : ClapTrap() {
     return;
 }
 
-FragTrap::FragTrap( std::string n ) {
+FragTrap::FragTrap( std::string n ) : ClapTrap(n) {
     _name = n;
     _hitPoint = 100;
     _energyPoint = 100;

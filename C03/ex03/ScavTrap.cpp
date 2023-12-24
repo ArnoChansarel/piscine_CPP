@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:38:23 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/12 16:49:05 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/24 17:19:42 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ ScavTrap::ScavTrap( void ) : ClapTrap() {
     return;
 } 
 
-ScavTrap::ScavTrap( std::string n ) {
-    _name = n;
+ScavTrap::ScavTrap( std::string n ) : ClapTrap(n) {
     _hitPoint = 100;
     _energyPoint = 50;
-    _attackDamage = 20;
+    _attackDamage = 200;
     std::cout << "ScavTrap " << getName() << " name constructor called." << std::endl;
     return;
 }

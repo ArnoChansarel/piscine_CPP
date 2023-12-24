@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:20:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/22 15:35:20 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 15:04:29 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ Fixed::Fixed(const float& nb) {
     return;
 }
 
-Fixed::Fixed( const Fixed& src) {
-    *this = src;
+Fixed::Fixed( const Fixed& src) : _value(src.getRawBits()) {
     return;
 }
 
@@ -140,7 +139,7 @@ Fixed Fixed::operator/(const Fixed& src) const {
 
 Fixed& Fixed::operator++(void) {
     
-    ++this->_value;
+    this->_value++;
     return *this;
 }
         
@@ -148,7 +147,7 @@ Fixed Fixed::operator++(int) {
     
     Fixed tmp(*this);
     
-    this->_value++;
+    operator++();
     return tmp;
 }
 

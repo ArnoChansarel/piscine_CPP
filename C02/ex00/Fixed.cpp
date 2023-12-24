@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:20:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/22 15:33:58 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 15:29:15 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ Fixed::Fixed( void ) : _value(0) {
     return;
 }
 
-Fixed::Fixed( const Fixed& src) {
+Fixed::Fixed( const Fixed& src) : _value(src.getRawBits()) {
     std::cout << "Copy constructor called." << std::endl;
-    *this = src;
     return;
 }
 

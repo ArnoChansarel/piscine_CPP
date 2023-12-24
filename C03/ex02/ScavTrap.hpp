@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:52:15 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/11 20:02:50 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:05:41 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class ScavTrap : public ClapTrap
 {
     public :
+        ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(const ScavTrap&);
         ~ScavTrap();

@@ -6,14 +6,15 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 21:28:14 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/12 16:26:57 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/24 17:34:04 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <FragTrap.hpp>
-#include <ScavTrap.hpp>
+#include <iostream>
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 class DiamondTrap : public FragTrap, public ScavTrap {
     
@@ -23,14 +24,8 @@ class DiamondTrap : public FragTrap, public ScavTrap {
         ~DiamondTrap();
         DiamondTrap& operator=(const DiamondTrap&);
 
-        // void attack(const std::string& target) {
-        //     ScavTrap::attack(const std::string& target);
-        // }
+        void whoAmI() const;
 
-    // private:
-    //     std::string     _name;
-    //     unsigned int    _hitPoint;
-    //     unsigned int    _energyPoint;
-    //     unsigned int    _attackDamage;
-
+    private:
+        std::string     _name;
 };

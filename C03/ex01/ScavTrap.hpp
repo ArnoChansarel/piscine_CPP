@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:52:15 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 15:53:55 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:05:47 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 class ScavTrap : public ClapTrap
 {
-    public ://                                  ATTENTION : est-ce que les constructeurs sont necessaires ou erreur ?
+    public :
+        ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(const ScavTrap&);
         ~ScavTrap();

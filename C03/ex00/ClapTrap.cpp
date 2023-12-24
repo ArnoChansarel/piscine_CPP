@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 17:54:10 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/11 20:11:47 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:45:34 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 // =========================================================== CONSTRUCTOR
 
+ClapTrap::ClapTrap( void ) {
+    std::cout << "default constructor called." << std::endl;
+    return;
+}
+
 ClapTrap::ClapTrap( std::string n ) : _name(n), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
-    std::cout << "Default constructor called." << std::endl;
+    std::cout << "Custom constructor called." << std::endl;
     return;
 }
 
@@ -25,18 +30,21 @@ ClapTrap::ClapTrap( const ClapTrap& src ) {
     return;
 }
 
+ClapTrap &ClapTrap::operator=(const ClapTrap& src) {
+
+    if (this != &src) {    
+        std::cout << "Copy assignment operator called" << std::endl;
+        this->_name = src.getName();
+        this->_hitPoint = src.getHitPoint();
+        this->_energyPoint = src.getEnergyPoint();
+        this->_attackDamage = src.getDamage();
+    }
+    return *this;
+}
+
 ClapTrap::~ClapTrap( void ) {
     std::cout << "Desctructor called." << std::endl;
     return;
-}
-
-ClapTrap &ClapTrap::operator=(const ClapTrap& src) {
-    std::cout << "Copy assignment operator called" << std::endl;
-    this->_name = src.getName();
-    this->_hitPoint = src.getHitPoint();
-    this->_energyPoint = src.getEnergyPoint();
-    this->_attackDamage = src.getDamage();
-    return *this;
 }
 
 // =========================================================== GETTER & SETTER
@@ -55,6 +63,11 @@ unsigned int ClapTrap::getEnergyPoint() const {
 
 unsigned int ClapTrap::getDamage() const {
     return this->_attackDamage;
+}
+
+void ClapTrap::setEnergyPoint(int nb) {
+    this->_energyPoint = nb;
+    return;
 }
 
 // =========================================================== MEMBER FUNCTIONS

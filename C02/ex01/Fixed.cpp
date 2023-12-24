@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:20:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/22 15:34:49 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 14:08:27 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,12 @@ Fixed::Fixed( void ) : _value(0) {
     return;
 }
 
-Fixed::Fixed(const int nb) : _value(0) {
+Fixed::Fixed(const int nb) : _value(nb << _fract_bytes) {
     std::cout << "Int constructor called." << std::endl;
-
-    int scale = 1 << this->_fract_bytes;// shifting 1 to the left to build the scale
-    this->_value = nb * scale;//           multiply by scale will shift everything to create an int
     return;
 }
 
-Fixed::Fixed(const float nb) {
+Fixed::Fixed(const float nb) : _value(0) {
     std::cout << "Float constructor called." << std::endl;
     
     float scale = 1 << _fract_bytes;
@@ -36,14 +33,13 @@ Fixed::Fixed(const float nb) {
     return;
 }
 
-Fixed::Fixed( const Fixed& src) {
+Fixed::Fixed( const Fixed& src) : _value(src.getRawBits()) {
     std::cout << "Copy constructor called." << std::endl;
-    *this = src;
     return;
 }
 
 Fixed::~Fixed( void ) {
-    std::cout << "Desructor called." << std::endl;
+    std::cout << "Destructor called." << std::endl;
     return;
 }
 
@@ -59,7 +55,6 @@ Fixed &Fixed::operator=(const Fixed& src) {
 }
 
 std::ostream& operator<<(std::ostream& src, const Fixed& obj) {
-    
     src << obj.toFloat();
     return src;
 }

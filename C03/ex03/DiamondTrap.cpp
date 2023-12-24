@@ -6,18 +6,17 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:42:54 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/12 16:57:00 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/24 17:43:35 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+//                                                      Pourquoi cet ordre cause une erreur ???
+DiamondTrap::DiamondTrap( std::string n ) : ScavTrap(n), FragTrap(n) {
+    _name = n;
+    ClapTrap::_name += "_clap_trap";
 
-DiamondTrap::DiamondTrap( std::string n ) : ClapTrap( n ), ScavTrap( n ), FragTrap( n ) {
-    // _name = n;
-    _hitPoint = FragTrap::_hitPoint;
-    // _energyPoint = ScavTrap::_energyPoint;
-    // _attackDamage = FragTrap::_attackDamage;
-    // std::cout << "DiamondTrap " << getName() << " name constructor called." << std::endl;
+    std::cout << "DiamondTrap " << _name << " name constructor called." << std::endl;
     return;
 }
 
@@ -28,7 +27,7 @@ DiamondTrap::DiamondTrap( std::string n ) : ClapTrap( n ), ScavTrap( n ), FragTr
 // }
 
 DiamondTrap::~DiamondTrap( void ) {
-    // std::cout << "DiamondTrap " << getName() << " desctructor called." << std::endl;
+    std::cout << "DiamondTrap " << _name << " desctructor called." << std::endl;
     return;
 }
 
@@ -40,4 +39,11 @@ DiamondTrap::~DiamondTrap( void ) {
 //     this->_attackDamage = src.getDamage();
 //     return *this;
 // }
+
+
+void DiamondTrap::whoAmI() const {
+    std::cout   << "Hi, my name is " << _name << std::endl
+                << "And my clapname is " << ClapTrap::getName() << std::endl;
+    return;
+}
 

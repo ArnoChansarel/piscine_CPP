@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/11 17:41:20 by achansar          #+#    #+#              #
-#    Updated: 2023/08/11 21:25:15 by achansar         ###   ########.fr        #
+#    Updated: 2023/12/24 16:22:40 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = claptrap
 
 #ARGUMENTS
 CC = g++
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra  -Wshadow -Wno-shadow
 F_V = -std=c++98
 SRC =	main \
 		ClapTrap \

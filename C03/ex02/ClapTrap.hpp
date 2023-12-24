@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 17:44:31 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/18 11:49:08 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:51:43 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class ClapTrap {
         unsigned int getHitPoint() const;
         unsigned int getEnergyPoint() const;
         unsigned int getDamage() const;
+
+        void setEnergyPoint(int nb);
 
     protected:
         std::string     _name;

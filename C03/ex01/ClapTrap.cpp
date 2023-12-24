@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 17:54:10 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/11 20:11:42 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:11:00 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // =========================================================== CONSTRUCTOR
 
-ClapTrap::ClapTrap( void ) : _name("None"), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
+ClapTrap::ClapTrap( void ) {
     std::cout << "ClapTrap default constructor called." << std::endl;
     return;
 }
@@ -30,11 +30,6 @@ ClapTrap::ClapTrap( const ClapTrap& src ) {
     return;
 }
 
-ClapTrap::~ClapTrap( void ) {
-    std::cout << "ClapTrap " << getName() << " desctructor called." << std::endl;
-    return;
-}
-
 ClapTrap &ClapTrap::operator=(const ClapTrap& src) {
     std::cout << "Copy assignment operator called" << std::endl;
     this->_name = src.getName();
@@ -42,6 +37,11 @@ ClapTrap &ClapTrap::operator=(const ClapTrap& src) {
     this->_energyPoint = src.getEnergyPoint();
     this->_attackDamage = src.getDamage();
     return *this;
+}
+
+ClapTrap::~ClapTrap( void ) {
+    std::cout << "ClapTrap " << getName() << " desctructor called." << std::endl;
+    return;
 }
 
 // =========================================================== GETTER & SETTER
@@ -60,6 +60,11 @@ unsigned int ClapTrap::getEnergyPoint() const {
 
 unsigned int ClapTrap::getDamage() const {
     return this->_attackDamage;
+}
+
+void ClapTrap::setEnergyPoint(int nb) {
+    this->_energyPoint = nb;
+    return;
 }
 
 // =========================================================== MEMBER FUNCTIONS

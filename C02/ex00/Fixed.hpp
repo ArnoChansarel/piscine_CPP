@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:42:12 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/04 15:34:27 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 12:35:46 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Fixed {
     private:
         int                 _value;
         static const int    _fract_bytes = 8;
-    
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:42:12 by achansar          #+#    #+#             */
-/*   Updated: 2023/08/08 12:11:22 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/23 13:41:48 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Fixed {
         int                 toInt( void ) const;
 
     private:
-        int                 _value;
-        static const int    _fract_bytes = 8;
+        int                 _value;//               store fixedpoint number
+        static const int    _fract_bytes = 8;//     number of bytes allocated to the fract part
 };
 
 std::ostream& operator<<(std::ostream& src, const Fixed& obj);
