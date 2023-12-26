@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:38:23 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/24 17:19:31 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/26 14:31:51 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ ScavTrap::~ScavTrap( void ) {
 
 ScavTrap &ScavTrap::operator=(const ScavTrap& src) {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->_name = src.getName();
-    this->_hitPoint = src.getHitPoint();
-    this->_energyPoint = src.getEnergyPoint();
-    this->_attackDamage = src.getDamage();
+    this->_name = _name;
+    this->_hitPoint = _hitPoint;
+    this->_energyPoint = _energyPoint;
+    this->_attackDamage = _attackDamage;
     return *this;
 }
 
@@ -53,16 +53,16 @@ void ScavTrap::attack(const std::string& target) {
     
     if (_energyPoint && _hitPoint > 0) {
         this->_energyPoint -= 1;
-        std::cout   << "ScavTrap " << getName() << " attacks " << target
-                    << " causing " << getDamage() << " points of damage !" << std::endl;
+        std::cout   << "ScavTrap " << _name << " attacks " << target
+                    << " causing " << _attackDamage << " points of damage !" << std::endl;
     } else {
-        std::cout   << "ScavTrap " << getName() << " can't attack !" << std::endl;
+        std::cout   << "ScavTrap " << _name << " can't attack !" << std::endl;
     }
     return;
 }
 
 void ScavTrap::guardGate( void ) const {
     
-    std::cout << "ScavTrap " << getName() << " is in Gate Keeper mode." << std::endl;
+    std::cout << "ScavTrap " << _name << " is in Gate Keeper mode." << std::endl;
     return;
 }

@@ -12,9 +12,8 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(void) {
+Animal::Animal(void) : _type("Animal") {
     std::cout << "Animal default constructor called." << std::endl;
-    this->_type = "None";
     return;
 }
 

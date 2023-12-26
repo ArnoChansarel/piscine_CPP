@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 17:54:10 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/23 16:51:21 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/26 14:29:15 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,22 +85,22 @@ void ClapTrap::takeDamage(unsigned int amount) {
     this->_hitPoint -= amount;
     if (this->_hitPoint <= 0)
         this->_hitPoint = 0;
-    std::cout   << "Claptrap " << getName() << " took " << amount
+    std::cout   << "Claptrap " << _name << " took " << amount
                 << " point of damage !" << std::endl
-                << "It has " << getHitPoint() << " hit points left." << std::endl;
+                << "It has " << _hitPoint << " hit points left." << std::endl;
     if (!this->_hitPoint)
-        std::cout << "Claptrap " << getName() << " is dead !" << std::endl;
+        std::cout << "Claptrap " << _name << " is dead !" << std::endl;
     return;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-    
+    this->_hitPoint += amount;
     if (_energyPoint && _hitPoint > 0) {
         this->_energyPoint -= 1;
-        std::cout   << "Claptrap " << getName() << " repairs itself by " << amount << " points."
-                    << std::endl << "It has " << getHitPoint() << " hit points left." << std::endl;
+        std::cout   << "Claptrap " << _name << " repairs itself by " << amount << " points."
+                    << std::endl << "It has " << _hitPoint << " hit points left." << std::endl;
     } else {
-        std::cout   << "Claptrap " << getName() << " can't repair !" << std::endl;
+        std::cout   << "Claptrap " << _name << " can't repair !" << std::endl;
     }
     return;
 }

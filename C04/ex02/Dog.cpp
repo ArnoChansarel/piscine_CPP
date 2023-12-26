@@ -12,9 +12,8 @@
 
 #include "Dog.hpp"
 
-Dog::Dog(void) {
+Dog::Dog(void) : _type("Dog"){
     std::cout << "Dog default constructor called." << std::endl;
-    this->_type = "Dog";
     this->brain = new Brain(); 
     return;
 }
@@ -26,8 +25,10 @@ Dog::Dog(const Dog& src) {
 }
 
 Dog& Dog::operator=(const Dog& src) {
-    std::cout << "Dog copy assignement called." << std::endl;
-    this->_type = src.getType();
+    if (this != &src) {
+        std::cout << "Dog copy assignement called." << std::endl;
+        this->_type = src.getType();
+    }
     return *this;
 }
 

@@ -26,8 +26,10 @@ Dog::Dog(const Dog& src) {
 }
 
 Dog& Dog::operator=(const Dog& src) {
-    std::cout << "Dog copy assignement called." << std::endl;
-    this->_type = src.getType();
+    if (this != &src) {
+        std::cout << "Dog copy assignement called." << std::endl;
+        this->_type = src.getType();
+    }
     return *this;
 }
 

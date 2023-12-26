@@ -5,22 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/11 17:41:20 by achansar          #+#    #+#              #
-#    Updated: 2023/12/26 13:50:41 by achansar         ###   ########.fr        #
+#    Created: 2023/12/26 15:38:48 by achansar          #+#    #+#              #
+#    Updated: 2023/12/26 15:39:08 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = bureaucrat
 
 #ARGUMENTS
 CC = c++
 FLAGS = -Wall -Werror -Wextra  -Wshadow -Wno-shadow
 F_V = -std=c++98
 SRC =	main \
-		ClapTrap \
-		ScavTrap \
-		FragTrap \
-		DiamondTrap
+		Bureaucrat
 
 INC = #-I includes/
 CPP_FILES = $(SRC:=.cpp)
@@ -31,9 +28,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		@ $(CC) $(FLAGS) $(F_V) $(INC) $(OBJ) -o $(NAME)
-
-# .cpp.o:
-# 		@ $(CC) $(FLAGS) $(F_V) $(INC) -c $< -o $@
 
 clean:
 		@rm -f $(OBJ)

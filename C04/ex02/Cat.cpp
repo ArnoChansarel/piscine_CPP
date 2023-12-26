@@ -12,9 +12,8 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(void) {
+Cat::Cat(void) : _type("Cat") {
     std::cout << "Cat default constructor called." << std::endl;
-    this->_type = "Cat";
     this->brain = new Brain(); 
     return;
 }
@@ -26,8 +25,10 @@ Cat::Cat(const Cat& src) {
 }
 
 Cat& Cat::operator=(const Cat& src) {
-    std::cout << "Cat copy assignement called." << std::endl;
-    this->_type = src.getType();
+    if (this != &src) {
+        std::cout << "Cat copy assignement called." << std::endl;
+        this->_type = src.getType();
+    }
     return *this;
 }
 

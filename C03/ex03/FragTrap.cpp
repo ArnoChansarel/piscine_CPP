@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 20:14:49 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/24 17:00:26 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/26 14:31:18 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ FragTrap::~FragTrap( void ) {
 
 FragTrap &FragTrap::operator=(const FragTrap& src) {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->_name = src.getName();
-    this->_hitPoint = src.getHitPoint();
-    this->_energyPoint = src.getEnergyPoint();
-    this->_attackDamage = src.getDamage();
+    this->_name = _name;
+    this->_hitPoint = _hitPoint;
+    this->_energyPoint = _energyPoint;
+    this->_attackDamage = _attackDamage;
     return *this;
 }
 
@@ -54,17 +54,17 @@ void FragTrap::attack(const std::string& target) {
     
     if (_energyPoint && _hitPoint > 0) {
         this->_energyPoint -= 1;
-        std::cout   << "FragTrap " << getName() << " attacks " << target
-                    << " causing " << getDamage() << " points of damage !" << std::endl;
+        std::cout   << "FragTrap " << _name << " attacks " << target
+                    << " causing " << _attackDamage << " points of damage !" << std::endl;
     } else {
-        std::cout   << "FragTrap " << getName() << " can't attack !" << std::endl;
+        std::cout   << "FragTrap " << _name << " can't attack !" << std::endl;
     }
     return;
 }
 
 void FragTrap::highFiveGuys( void ) {
     
-    std::cout << "You got a new message by FragTrap " << getName() << " ! :"
+    std::cout << "You got a new message by FragTrap " << _name << " ! :"
                 << " Hi ! Can I get a high five ?" << std::endl;
     return;
 }
