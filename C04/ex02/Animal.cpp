@@ -6,11 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:16:00 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/20 17:56:51 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:47:48 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+
+// =========================================================== CONSTRUCTOR
 
 Animal::Animal(void) : _type("Animal") {
     std::cout << "Animal default constructor called." << std::endl;
@@ -19,7 +21,7 @@ Animal::Animal(void) : _type("Animal") {
 
 Animal::Animal(const Animal& src) {
     std::cout << "Animal copy constructor called." << std::endl;
-    *this = src;//           COPY PROFONDE
+    *this = src;
     return;
 }
 
@@ -34,11 +36,13 @@ Animal::~Animal(void) {
     return;
 }
 
+// =========================================================== MEMBER FUNCTIONS
+
 std::string Animal::getType() const {
     return _type;
 }
 
 // void Animal::makeSound() const {
-//     std::cout << "The " << getType() << " goes BLANK" << std::endl;
+//     std::cout << "The " << _type << " goes BLANK" << std::endl;
 //     return; 
 // }

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:43:39 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/26 15:43:41 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:09:33 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main() {
 
     // return 0;
 
-    	Bureaucrat Sam("Manager Sam", 21);
+    Bureaucrat Sam("Manager Sam", 21);
 	std::cout << Sam;
 	Bureaucrat Tim("Manager Tim", 42);
 	std::cout << Tim;
@@ -51,26 +51,27 @@ int main() {
 	sleep(1);
 	// putString("<<<<<<<<<<<< TEST 2 >>>>>>>>>>>>", C_YELLOW);
 	std::cout << "Try to create a bureaucrat with invalid grade:" << std::endl;
+	
 	sleep(2);
-	try
-	{
+	
+	try {
 		Bureaucrat Zero("Zero", 0);
 		std::cout << Zero;
+	} catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
-	catch(const std::exception& e)
-	{
-		e.what();
-	}
+	
 	sleep(2);
-		try
-	{
+	
+	try {
 		Bureaucrat Million("Million", 1000000);
 		std::cout << Million;
+	} catch(const std::exception& e) {
+	    std::cerr << e.what() << std::endl;
 	}
-	catch(const std::exception& e)
-	{
-	    e.what();
-	}
+
+	Bureaucrat David(Emily);
+	std::cout << David << std::endl;
 
 	return 0;
 }

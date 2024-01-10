@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:36 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/22 19:18:39 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:49:44 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ Character& Character::operator=(const Character& src) {
 }
 
 Character::~Character() {
-	std::cout << "Character default destructor called." << std::endl;
+	// std::cout << "Character default destructor called." << std::endl;
 	return;
 };
 

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:07:24 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/19 17:33:06 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:48:10 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Cat : public Animal {
         ~Cat(void);
     
         void makeSound() const;
+        void thinking(int i) const;
         
-    private:
+    protected:
         Brain* brain;
 };

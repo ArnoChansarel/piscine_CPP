@@ -6,9 +6,11 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:43:39 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/26 15:43:41 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:38:52 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 
@@ -27,14 +29,14 @@ class Bureaucrat {
         std::string getName() const;
         int getGrade() const;
 
-        class GradeTooHighException {
+        class GradeTooHighException : public std::exception {
             public:
                 const char* what() const throw() {
                     return "The grade is too high !";
                 }
         };
 
-        class GradeTooLowException {
+        class GradeTooLowException : public std::exception {
             public:
                 const char* what() const throw() {
                     return "The grade is too low !";

@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/18 13:12:37 by achansar          #+#    #+#              #
-#    Updated: 2023/12/20 12:08:39 by achansar         ###   ########.fr        #
+#    Updated: 2023/12/27 12:34:10 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Animal
 
 #ARGUMENTS
 CC = g++
-# FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 F_V = -std=c++98
 SRC =	main \
 		Animal \

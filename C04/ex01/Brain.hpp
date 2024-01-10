@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:58:13 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/20 12:00:38 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:20:50 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class Brain {
         ~Brain(void);
 
         std::string getIdeas(int i) const;
+        void IThinkOf(int i) const;
         
-    private:
+    protected:
         std::string _ideas[100];
 };

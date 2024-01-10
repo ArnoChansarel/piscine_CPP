@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 15:38:48 by achansar          #+#    #+#              #
-#    Updated: 2023/12/26 15:39:08 by achansar         ###   ########.fr        #
+#    Updated: 2023/12/28 20:12:11 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = bureaucrat
 
 #ARGUMENTS
 CC = c++
-FLAGS = -Wall -Werror -Wextra  -Wshadow -Wno-shadow
+FLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 F_V = -std=c++98
 SRC =	main \
 		Bureaucrat

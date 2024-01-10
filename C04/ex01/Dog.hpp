@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:18:00 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/20 11:45:58 by achansar         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:46:43 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class Dog : public Animal {
         ~Dog(void);
     
         void makeSound() const;
-        std::string getBrainIdea(int i) const;
+        void thinking(int i) const;
 
-    private:
+
+    protected:
         Brain* brain;
 };
