@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:43:39 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 19:36:14 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:52:02 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int main() {
 		std::cerr << e.what() << std::endl;
 	}
 	sleep(1);
-
-	std::cerr << "Looking for segi" << std::endl;
 
 	Bureaucrat Robert("Boss Robert", 1);
 	std::cout << Robert;

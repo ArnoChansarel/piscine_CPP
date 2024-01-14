@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 15:38:48 by achansar          #+#    #+#              #
-#    Updated: 2023/12/28 20:12:28 by achansar         ###   ########.fr        #
+#    Updated: 2024/01/14 16:51:01 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ clean:
 
 fclean: clean
 		@rm -f $(NAME)
+		@rm Paradise_shruberry
 
 re: fclean all
 

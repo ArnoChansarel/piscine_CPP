@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:06:40 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 14:35:08 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:14:03 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // =========================================================== CONSTRUCTOR
 
 Form::Form(std::string n, int g1, int g2) : _name(n), _sign(false), _reqGrade_sign(g1), _reqGrade_exec(g2) {
-    std::cout << "Form constructor called." << std::endl;
+    // std::cout << "Form constructor called." << std::endl;
         if (g1 < 1 || g2 < 1) {
             throw Form::GradeTooHighException();
         } else if (g1 > 150 || g2 > 150) {
@@ -29,21 +29,21 @@ Form::Form(const Form& src) :
         _sign(src._sign), 
         _reqGrade_sign(src._reqGrade_sign), 
         _reqGrade_exec(src._reqGrade_exec) {
-    std::cout << "Form copy constructor called." << std::endl;
+    // std::cout << "Form copy constructor called." << std::endl;
     return;
 }
 
 Form& Form::operator=(const Form& src) {
     
     if (this != &src) {
-        std::cout << "Form copy assignement called." << std::endl;
+        // std::cout << "Form copy assignement called." << std::endl;
         _sign = src._sign;
     }
     return *this;
 }
 
 Form::~Form() {
-    std::cout << "Form destructor called." << std::endl;
+    // std::cout << "Form destructor called." << std::endl;
     return;
 }
 

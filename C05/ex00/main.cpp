@@ -6,25 +6,20 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:43:39 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/27 18:09:33 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:07:48 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "Bureaucrat.hpp"
 
+void putString(std::string str) {
+    
+    std::cout << str << std::endl;
+    return;
+}
+
 int main() {
-
-    // Bureaucrat Yves("Yves", 1);
-    // Bureaucrat Didier("Didier", 150);
-
-    // try {
-
-    // } catch (std::exception e) {
-    //     std::cerr << "Caught exception: " << e.what() << std::endl;
-    // }
-
-    // return 0;
 
     Bureaucrat Sam("Manager Sam", 21);
 	std::cout << Sam;
@@ -36,7 +31,7 @@ int main() {
 	std::cout << Emily << std::endl;
 
 	sleep(1);
-	// putString("<<<<<<<<<<<< TEST 1 >>>>>>>>>>>>", C_YELLOW);
+	putString("<<<<<<<<<<<< TEST 1 >>>>>>>>>>>>");
 	std::cout << "Try to increment Boss's grade: " << std::endl;
 	sleep(2);
 	Robert.upgrade();
@@ -49,7 +44,7 @@ int main() {
 	std::cout << Emily << std::endl;
 
 	sleep(1);
-	// putString("<<<<<<<<<<<< TEST 2 >>>>>>>>>>>>", C_YELLOW);
+	putString("<<<<<<<<<<<< TEST 2 >>>>>>>>>>>>");
 	std::cout << "Try to create a bureaucrat with invalid grade:" << std::endl;
 	
 	sleep(2);
@@ -70,6 +65,7 @@ int main() {
 	    std::cerr << e.what() << std::endl;
 	}
 
+	std::cout << "Try to create a bureaucrat with copy constructor:" << std::endl;
 	Bureaucrat David(Emily);
 	std::cout << David << std::endl;
 

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:43:39 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 12:38:52 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:14:56 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 class Bureaucrat {
     
     public:
-        Bureaucrat();
         Bureaucrat(std::string n, int g);
         Bureaucrat(const Bureaucrat&);
         Bureaucrat& operator=(const Bureaucrat&);
@@ -44,6 +43,7 @@ class Bureaucrat {
         };
 
     private:
+        Bureaucrat();
         const std::string   _name;
         int                 _grade;
 };

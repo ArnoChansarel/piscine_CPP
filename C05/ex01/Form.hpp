@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 18:24:11 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 13:22:31 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:14:13 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class Form {
         };
         
     private:
+        Form();
         const std::string   _name;
         bool                _sign;
         const int           _reqGrade_sign;

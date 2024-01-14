@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:43:31 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 17:08:13 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:43:19 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& src) {
 
 	if (this != &src) {
-		// do something....
+		AForm::operator=(src);
+		_target = src._target;
 	}
 	return *this;
 }

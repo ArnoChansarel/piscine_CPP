@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:37 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/27 18:15:19 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:15:01 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 // =========================================================== CONSTRUCTOR
 
-Bureaucrat::Bureaucrat() {
-    std::cout << "Bureaucrat default constructor called." << std::endl;
-    return;
-}
-
 Bureaucrat::Bureaucrat(std::string n, int g) : _name(n) {
-    std::cout << "Bureaucrat constructor called." << std::endl;
+    // std::cout << "Bureaucrat constructor called." << std::endl;
         if (g < 1) {
             throw Bureaucrat::GradeTooHighException();
         } else if (g > 150) {
@@ -32,21 +27,21 @@ Bureaucrat::Bureaucrat(std::string n, int g) : _name(n) {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade) {
-    std::cout << "Bureaucrat copy constructor called." << std::endl;
+    // std::cout << "Bureaucrat copy constructor called." << std::endl;
     return;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
     
     if (this != &src) {
-        std::cout << "Bureaucrat copy assignement called." << std::endl;
+        // std::cout << "Bureaucrat copy assignement called." << std::endl;
         _grade = src._grade;
     }
     return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
-    std::cout << "Bureaucrat destructor called." << std::endl;
+    // std::cout << "Bureaucrat destructor called." << std::endl;
     return;
 }
 

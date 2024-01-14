@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:42:38 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 19:13:43 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:47:44 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ class RobotomyRequestForm : public AForm {
         std::string     getTarget() const;
         
     private:
+        RobotomyRequestForm();
         std::string     _target;
 };

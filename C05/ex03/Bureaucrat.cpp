@@ -6,18 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:37 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 17:35:58 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:46:30 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 // =========================================================== CONSTRUCTOR
-
-Bureaucrat::Bureaucrat() {
-    // std::cout << "Bureaucrat default constructor called." << std::endl;
-    return;
-}
 
 Bureaucrat::Bureaucrat(std::string n, int g) : _name(n) {
     // std::cout << "Bureaucrat constructor called." << std::endl;

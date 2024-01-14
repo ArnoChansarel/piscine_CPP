@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:55:13 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 19:13:36 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:46:03 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src) :
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& src) {
 
 	if (this != &src) {
-		// do something....
+		AForm::operator=(src);
+		_target = src._target;
 	}
 	return *this;
 }

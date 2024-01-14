@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:42:56 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 19:14:00 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:47:52 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class ShrubberyCreationForm : public AForm {
         std::string     getTarget() const;
         
     private:
+        ShrubberyCreationForm();
         std::string     _target;
         
 };

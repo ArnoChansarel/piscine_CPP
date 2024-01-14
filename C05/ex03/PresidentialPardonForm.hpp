@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:35:22 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 19:13:28 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:47:37 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class PresidentialPardonForm : public AForm {
         std::string     getTarget() const;
         
     private:
+        PresidentialPardonForm();
         std::string     _target;
         
 };

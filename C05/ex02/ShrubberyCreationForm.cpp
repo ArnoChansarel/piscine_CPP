@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:44:23 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 17:09:08 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:43:35 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src) :
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src) {
 
 	if (this != &src) {
-		// do something....
+		AForm::operator=(src);
+		_target = src._target;
 	}
 	return *this;
 }
