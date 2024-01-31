@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 17:41:12 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/28 19:33:28 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/15 14:35:53 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,17 @@ Intern::~Intern() {
 // =========================================================== MEMBER FUNCTION
 
 AForm* Intern::makeP(std::string n, std::string t) {
+    std::cout << "Intern creates Presiential Pardon Form." << std::endl;
     return new PresidentialPardonForm(n, t);
 }
 
 AForm* Intern::makeR(std::string n, std::string t) {
+    std::cout << "Intern creates Robotomy Request Form." << std::endl;
     return new RobotomyRequestForm(n, t);
 }
 
 AForm* Intern::makeS(std::string n, std::string t) {
+    std::cout << "Intern creates Shruberry Creation Form." << std::endl;
     return new ShrubberyCreationForm(n, t);
 }
 

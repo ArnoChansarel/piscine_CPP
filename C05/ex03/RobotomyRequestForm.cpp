@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:55:13 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:46:03 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:08:57 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 void RobotomyRequestForm::action() const {
     std::cout << "Drilling noises.............." << std::endl;
     
+	std::srand(std::time(nullptr));
     int res = std::rand() % 2;
     if (res) {
         std::cout << _target << " has been successfully robotomized !" << std::endl;

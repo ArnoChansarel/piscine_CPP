@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:43:39 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:52:02 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:08:24 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,18 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
+void putString(std::string str) {
+    
+    std::cout << str << std::endl;
+    return;
+}
+
 int main() {
 	
 	Intern someRandomIntern;
 	std::cout << std::endl;
-	std::cout << "<<<<<<<<<<<< TEST VALID FORM >>>>>>>>>>>>" << std::endl;
-	sleep(1);
+	putString("<<<<<<<<<<<< TEST VALID FORM >>>>>>>>>>>>");
+
 	AForm* rrf;
 	try
 	{
@@ -33,7 +39,7 @@ int main() {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	sleep(1);
+
 	AForm* scf;
 	try
 	{
@@ -43,22 +49,22 @@ int main() {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	sleep(1);
+
 
 	Bureaucrat Robert("Boss Robert", 1);
 	std::cout << Robert;
-	sleep(1);
+
 	Robert.signForm(*rrf);
-	sleep(1);
+
 	Robert.executeForm(*rrf);
-	sleep(1);
+
 	Robert.signForm(*scf);
-	sleep(1);
+
 	Robert.executeForm(*scf);
-	sleep(1);
+
 	std::cout << std::endl;
-	std::cerr << "<<<<<<<<<<<< TEST INVALID FORM >>>>>>>>>>>>" << std::endl;
-	sleep(1);
+	putString("<<<<<<<<<<<< TEST INVALID FORM >>>>>>>>>>>>");
+
 	
 	try
 	{

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:06:40 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:14:03 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:24:15 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,23 @@ Form::~Form() {
 
 // =========================================================== MEMBER FUNCTIONS
 
+// void Form::beSigned(const Bureaucrat& b) {
+//     if (_sign == true) {
+//         throw Form::FormAlreadySignedException();    
+//     }
+//     if (b.getGrade() <= _reqGrade_sign)
+//         _sign = true;
+//     else
+//         throw Form::GradeTooLowException();
+//     return;
+// }
+
 void Form::beSigned(const Bureaucrat& b) {
         if (b.getGrade() <= _reqGrade_sign)
-            _sign = true;
+            if (_sign)
+                throw Form::FormAlreadySignedException();
+            else
+                _sign = true;
         else
             throw Form::GradeTooLowException();
     return;

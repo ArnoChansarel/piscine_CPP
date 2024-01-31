@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 18:24:11 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:14:13 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:22:07 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ class Form {
         class GradeTooLowException : public std::exception {
             const char* what() const throw() {
                 return "The grade is too low !";
+            }
+        };
+
+        class FormAlreadySignedException : public std::exception {
+            const char* what() const throw() {
+                return "The form is already signed !";
             }
         };
         

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:52:54 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/12 15:15:52 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:19:30 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ unsigned int Span::shortestSpan() const {
 }
 
 void Span::printSpan() const {
-	
+
 	for (std::vector<int>::const_iterator i = _vector.begin(); i != _vector.end(); i++) {
 		std::cout << *i << " "; 
 	}

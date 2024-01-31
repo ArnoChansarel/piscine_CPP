@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/28 20:11:31 by achansar          #+#    #+#              #
-#    Updated: 2024/01/09 18:16:30 by achansar         ###   ########.fr        #
+#    Updated: 2024/01/16 17:24:20 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ NAME = abc
 CC = c++
 FLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 F_V = -std=c++98
-SRC =	main \
-		Base
+SRC =	main 
 
 INC = #-I includes/
 CPP_FILES = $(SRC:=.cpp)

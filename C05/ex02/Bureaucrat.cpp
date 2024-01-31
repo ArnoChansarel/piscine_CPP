@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:37 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:16:47 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:26:00 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void Bureaucrat::downgrade() {
 void Bureaucrat::signForm(AForm& src) {
     try {
         src.beSigned(*this);
-        std::cout << *this << " signs " << src.getName() << std::endl;
+        std::cout << getName() << " successfully signed the " << src.getName() << std::endl;
     } catch(const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 20:12:39 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/09 13:36:10 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:13:46 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool isDouble(std::string l) {
 static bool LitToChar(std::string literal) {
     
     if (isChar(literal)) {
-        std::cout << "Using char convert" << std::endl;
+        // std::cout << "Using char convert" << std::endl;
         char l_char = static_cast<char>(literal[0]);
 
         std::cout << "char: '" << l_char << "'" << std::endl;
@@ -99,15 +99,14 @@ static bool LitToChar(std::string literal) {
 static bool LitToInt(std::string literal) {
 
     if (isInt(literal)) {
-        std::cout << "Using int convert" << std::endl;
+        // std::cout << "Using int convert" << std::endl;
 
         int l_int = std::stoi(literal);
 
         char l_char = static_cast<char>(l_int);
-        std::cout << "char : ";
         try {
             if (l_char >= 32 && l_char <= 126)
-                std::cout << "'" << l_char << "'" << std::endl;
+                std::cout << "char : '" << l_char << "'" << std::endl;
             else
                 throw ScalarConverter::NonDisplayableException();
         } catch (const std::exception& e) {
@@ -159,11 +158,10 @@ static bool LitToFloat(std::string literal) {
 }
 
 static bool LitToDouble(std::string literal) {
-    
-    
+
     if (isDouble(literal)) {
-        std::cout << "Using double convert" << std::endl;
-        
+        // std::cout << "Using double convert" << std::endl;
+
         bool dec = false;
         double l_d = std::stod(literal);
 
@@ -173,7 +171,7 @@ static bool LitToDouble(std::string literal) {
                 break;
             i++;
         }
-        
+
         if (literal[i] == '.') {
             while (literal[i]) {
                 if (literal[i] >= 49 && literal[i] <= 57) {
@@ -184,19 +182,22 @@ static bool LitToDouble(std::string literal) {
             }
         }
 
-        char l_char = static_cast<char>(l_d);
-        try {
-            if (l_char >= 32 && l_char <= 126)
-                std::cout << "char: '" << l_char << "'" << std::endl;
-            else
-                throw ScalarConverter::NonDisplayableException();
-        } catch (const std::exception& e) {
-            std::cout << "char : " << e.what() << std::endl;
+        if (literal == "nan" || literal == "+inf" || literal == "-inf") {
+            std::cout   << "char: impossible\nint: impossible" << std::endl;
+        } else {
+            char l_char = static_cast<char>(l_d);
+            try {
+                if (l_char >= 32 && l_char <= 126)
+                    std::cout << "char: '" << l_char << "'" << std::endl;
+                else
+                    throw ScalarConverter::NonDisplayableException();
+            } catch (const std::exception& e) {
+                std::cout << "char : " << e.what() << std::endl;
+            }
+            
+            int l_int = static_cast<int>(l_d);
+            std::cout << "int: " << l_int << std::endl;
         }
-        
-        int l_int = static_cast<int>(l_d);
-        std::cout << "int: " << l_int << std::endl;
-
         float l_f = static_cast<float>(l_d);
         size_t pos = literal.find('.');
         if (dec || literal == "nan" || literal == "+inf" || literal == "-inf") {
@@ -213,35 +214,11 @@ static bool LitToDouble(std::string literal) {
     return false;
 }
 
-bool Imposs(std::string lit) {
-    std::string arr[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
-
-    for (int i = 0; i < 6; i++) {
-        if (lit == arr[i]) {
-            std::cout   << "char: impossible" << std::endl
-                        << "int: impossible" << std::endl;
-
-            
-            
-            return true;
-        }
-    }
-    return false;
-}
-
 void ScalarConverter::convert(std::string literal) {
 
-    // double lit = std::stod(literal);
-
-    // float test = static_cast<float>(lit);
-    // double test2 = static_cast<double>(lit);
-
-    // std::cout << test << " & " << test2 << std::endl;
-    // if (Imposs(literal))
-    //     return;
     if (LitToInt(literal))
         return;
-    else if (LitToChar(literal))
+    if (LitToChar(literal))
         return;
     else if (LitToFloat(literal))
         return;

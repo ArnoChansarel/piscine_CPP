@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:31:57 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/09 19:52:10 by achansar         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:44:11 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void print_array(T* a, size_t l) {
 
 //                         A VIRER/remplacer
 template <typename T>
-void	inc(T &elem)
+void	increment(T &elem)
 {
 	elem++;
 }
 
 template <typename T>
-void	multiply21(T &elem)
+void	multiply(T &elem)
 {
-	elem *= 21;
+	elem *= elem;
 }
