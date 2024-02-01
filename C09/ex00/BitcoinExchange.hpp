@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:55:10 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/31 14:12:37 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:43:51 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ class BitcoinExchange {
         BitcoinExchange& operator=(const BitcoinExchange& src);
         ~BitcoinExchange();
 
-        class InvalidDateException : public std::exception {     
-            
-            const char* what() const throw() {
-                return "Invalid date.";
-            }
-        };
-
         class WrongInputException : public std::exception {     
             
             const char* what() const throw() {
@@ -40,10 +33,17 @@ class BitcoinExchange {
             }
         };
 
-        class WrongDatabaseException : public std::exception {     
+        class FileOpeningException : public std::exception {     
             
             const char* what() const throw() {
-                return "Error: Wrong Database format =>";
+                return "Error: could not open file.";
+            }
+        };
+
+        class WrongDatabaseException : public std::exception {     
+    
+            const char* what() const throw() {
+                return "Error: Wrong Database format";
             }
         };
 
@@ -51,9 +51,10 @@ class BitcoinExchange {
         void        getDatabase(const std::string db_file);
         void        getBtcValue(std::string date, std::string btc, std::string line);
         double      convertRate(std::string date, double btc);
+        double      convertValue(std::string v, std::string line);
 
     private:
         BitcoinExchange();
-        std::map<std::string, double>  _data;
-
+        std::map<std::string, double>   _data;
+        int                             _maxYear;
 };

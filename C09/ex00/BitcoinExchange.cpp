@@ -6,28 +6,11 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:10:15 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/31 14:14:55 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:58:36 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-// ============================================================================= CONSTRUCTORS
-
-BitcoinExchange::BitcoinExchange() {
-	return;
-}
-
-BitcoinExchange::BitcoinExchange(const std::string db_file) {
-	getDatabase(db_file);
-	return;
-}
-
-// manque operator copy
-
-BitcoinExchange::~BitcoinExchange() {
-	return;
-}
 
 // ============================================================================= PARSING
 
@@ -80,8 +63,34 @@ bool isValidDate(const std::string& dateString, const int maxYear) {
 		i++;
 	}
 	array[j] = std::stoi(temp);
-
 	return checkDate(array[0], array[1], array[2], maxYear);
+}
+
+// ============================================================================= CONSTRUCTORS
+
+BitcoinExchange::BitcoinExchange() {
+	return;
+}
+
+BitcoinExchange::BitcoinExchange(const std::string db_file) {
+	getDatabase(db_file);
+	_maxYear = getCurrentYear();
+	return;
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& src) {
+	*this = src;
+	return;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src) {
+	_data = src._data;
+	_maxYear = src._maxYear;
+	return *this;
+}
+
+BitcoinExchange::~BitcoinExchange() {
+	return;
 }
 
 // ============================================================================= MEMBER FUNCTIONS
@@ -100,22 +109,29 @@ double BitcoinExchange::convertRate(std::string date, double btc) {
 	return 0.0;
 }
 
-void BitcoinExchange::getBtcValue(std::string date, std::string v, std::string line) {
-
+double BitcoinExchange::convertValue(std::string v, std::string line) {
+	
 	for (std::string::iterator strit = v.begin(); strit != v.end(); strit++) {
 		if (!isdigit(*strit) && *strit != '.' && *strit != '-') {
 			std::cout << "Error: bad input => " << line << std::endl;
-			return;
-		}	
+			return -1;
+		}
 	}
-
 	double btc = std::stod(v);
+	if (btc < 0) { std::cout << "Error: not a positive number." << std::endl; return -1;}
+	else if ( btc > INT_MAX) { std::cout << "Error: too large a number." << std::endl; return -1;}
+	else
+		return btc;
+}
 
-	if (btc < 0) { std::cout << "Error: not a positive number." << std::endl; }
-	else if ( btc > INT_MAX) { std::cout << "Error: too large a number." << std::endl; }
+void BitcoinExchange::getBtcValue(std::string date, std::string v, std::string line) {
+
+	double btc = convertValue(v, line);
+	if (btc < 0)
+		return;
 	else {
 		double rate = convertRate(date, btc);
-		std::cout << date << " => " << btc * rate << std::endl;
+		std::cout << date << " => " << v << " = " << btc * rate << std::endl;
 	}
 	return;
 }
@@ -124,49 +140,65 @@ bool BitcoinExchange::convertInput(char *input) {
 	
     const int maxYear = getCurrentYear();
 
-    std::ifstream inf(input);// -> protect ?
+    std::ifstream inf(input);
     std::string line;
 	std::string date;
 	std::string value;
 	std::string separator = " | ";
 
-	std::getline(inf, line);
-	if (line.compare("date | value"))
-		throw WrongInputException();
+	if (inf.is_open()) {
+		std::getline(inf, line);
+		if (line.compare("date | value"))
+			throw WrongInputException();
 
-	while (std::getline(inf, line)){
-		std::size_t pos = line.find(separator);
-		if (pos != 10 || !line[pos + 3])
-			std::cout << "Error: bad input => " << line << std::endl;
-		else {
-			date = line.substr(0, 10);
-			value = line.substr(pos + 3);
-			// std::cout << "key : " << date << " | value : " << value << std::endl;
-			getBtcValue(date, value, line);
-		} 
+		while (std::getline(inf, line)){
+			std::size_t pos = line.find(separator);
+			if (pos != 10 || !line[pos + separator.length()])
+				std::cout << "Error: bad input => " << line << std::endl;
+			else {
+				date = line.substr(0, 10);
+				value = line.substr(pos + separator.length());
+				if (!isValidDate(date, _maxYear))
+					std::cout << "Error: bad input => " << line << std::endl;
+				else
+					getBtcValue(date, value, line);
+			} 
+		}
+	} else {
+		throw FileOpeningException();
 	}
 	return true;
 }
 
 void BitcoinExchange::getDatabase(const std::string db_file) {
 	
-	std::ifstream inf(db_file);//       faut il parser le nom, verifier l'extension/l'existence ?
-	std::string temp;
-
+	std::ifstream inf(db_file);
+	std::string line;
 	std::string key;
 	double value;
+	std::string s = ",";
 
-	std::getline(inf, temp);// check prmiere ligne
+	if (inf.is_open()) {
+		std::getline(inf, line);
+		if (!s.compare("date,exchange_rate"))
+			throw WrongDatabaseException();
 
-	while (std::getline(inf, temp)) {
-		key = temp.substr(0, 10);
-		value = std::stod(temp.substr(11));
-		// if (isValidDate(key, 2009))//                 remplacer par minYear
-		// 	throw WrongDatabaseException();
-		// if (value < 0 || value > INT_MAX)//           quel max ?
-		// 	throw WrongDatabaseException();
-		_data[key] = value;
-	}	
+		while (std::getline(inf, line)) {
+			std::size_t pos = line.find(s);
+			if (pos != 10 || !line[pos + s.length()])
+				throw WrongDatabaseException();
+			else {
+				key = line.substr(0, 10);
+				value = std::stod(line.substr(11));
+				if (!isValidDate(key, _maxYear))
+					throw WrongDatabaseException();
+				if (value < 0 || value > INT_MAX)
+					throw WrongDatabaseException();
+				_data[key] = value;
+			}
+		}
+	} else {
+		throw FileOpeningException();
+	}
 	return;
 }
-

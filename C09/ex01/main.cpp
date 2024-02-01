@@ -5,34 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 14:56:26 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/01 15:37:06 by achansar         ###   ########.fr       */
+/*   Created: 2024/02/01 17:01:53 by achansar          #+#    #+#             */
+/*   Updated: 2024/02/01 18:37:40 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
-
-/*
-parse database
-
-*/
-
+// EXEMPLE : "1 2 * 2 / 2 * 2 4 - +"
 
 int main(int argc, char **argv) {
-
-    if (argc == 2) {
-        try {
-            BitcoinExchange db("data.csv");
-            db.convertInput(argv[1]);
-         
-        } catch (std::exception& e) {
-            std::cout << e.what() << std::endl;
-        }
-    } else {
-        std::cout << "Error: could not open file." << std::endl;
-        return 1;
-    }
-
+    
+    RPN a("1 2 *");
     return 0;
 }
