@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:04:07 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/01 18:50:27 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:55:48 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,21 @@ class RPN {
                 return "Error: Program only takes operands and operators as input.";
             }
         };
+
+        class ImpossibleRPNException : public std::exception {
+            
+            const char* what() const throw() {
+                return "Error: The provided computation chain is impossible.";
+            }
+        };
+
+        class ZeroDivisionException : public std::exception {
+            
+            const char* what() const throw() {
+                return "Error: Attempted to divide by zero.";
+            }
+        };
+
 
     private:
         RPN();

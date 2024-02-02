@@ -6,23 +6,18 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 15:38:48 by achansar          #+#    #+#              #
-#    Updated: 2024/01/15 14:05:16 by achansar         ###   ########.fr        #
+#    Updated: 2024/02/02 16:58:18 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = PmergeMe
 
 #ARGUMENTS
 CC = c++
 FLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 F_V = -std=c++98
 SRC =	main \
-		Bureaucrat \
-		AForm \
-		ShrubberyCreationForm \
-		RobotomyRequestForm \
-		PresidentialPardonForm \
-		Intern
+		PmergeMe
 
 INC = #-I includes/
 CPP_FILES = $(SRC:=.cpp)
