@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 15:38:48 by achansar          #+#    #+#              #
-#    Updated: 2024/02/02 16:58:18 by achansar         ###   ########.fr        #
+#    Updated: 2024/02/03 16:52:45 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ clean:
 
 fclean: clean
 		@rm -f $(NAME)
-		@rm Island_shruberry
 
 re: fclean all
 
