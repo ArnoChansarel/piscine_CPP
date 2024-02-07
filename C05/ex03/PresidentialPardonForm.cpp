@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:43:31 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:45:59 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:13:18 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string tar
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) :
-	AForm("ShruberryCreationForm", 25, 5) {
+	AForm("PresidentialPardonForm", 25, 5) {
+	*this = src;
 	return;
 }
 

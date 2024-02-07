@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:37 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/17 12:21:00 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:01:11 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ Bureaucrat::Bureaucrat(std::string n, int g) : _name(n) {
     return;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade) {
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name) {
     // std::cout << "Bureaucrat copy constructor called." << std::endl;
+    *this = src;
     return;
 }
 

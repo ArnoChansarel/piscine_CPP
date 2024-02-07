@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:55:13 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/17 14:08:57 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:13:28 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) :
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src) :
-	AForm("ShruberryCreationForm", 72, 45) {
+	AForm("RobotomyRequestForm", 72, 45) {
+	*this = src;
 	return;
 }
 

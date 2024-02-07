@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:44:23 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:46:07 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:13:38 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string targe
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src) :
 	AForm("ShruberryCreationForm", 145, 137) {
+	*this = src;
 	return;
 }
 

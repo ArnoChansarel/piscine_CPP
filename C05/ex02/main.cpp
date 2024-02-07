@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:43:39 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/17 14:08:13 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:11:12 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main() {
 	std::cout << Robert;
 	Bureaucrat Emily("Clerk Emily", 150);
 	std::cout << Emily << std::endl;
-
 
 	putString("<<<<<<<<<<<< TEST 1 >>>>>>>>>>>>");
 	std::cout << "Try to increment Boss's grade: " << std::endl;
@@ -116,6 +115,11 @@ int main() {
 
 	std::cout << "Boss is trying to execute the form ..." << std::endl;
 	Robert.executeForm(robo);
+
+	putString("<<<<<<<<<<<< TEST 6 >>>>>>>>>>>>");
+	
+	RobotomyRequestForm roboCopy(robo);
+	std::cout << roboCopy;
 
 	return 0;
 }

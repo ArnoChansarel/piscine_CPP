@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:51:42 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/06 14:27:05 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 09:57:30 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,9 @@ class PmergeMe {
 		PmergeMe& operator=(const PmergeMe& src);
 		~PmergeMe();
 
-		void getData();
+		void parseInput(std::string);
 		void executeAlgo(std::vector<int>& vec);
-		void insertSortVec(std::vector<int>& vec);
-		void mergeSortVec(std::vector<int>& vec, int left, int right, int ksize);
-		void mergeSortLst(std::vector<int>& vec, int left, int right);
-
+		// void insertSortVec(std::vector<int>& vec);
 
 		void    sortPairs(std::vector<int>& vec, int left, int right);
 		void	sortVec(std::vector<int>& vec);

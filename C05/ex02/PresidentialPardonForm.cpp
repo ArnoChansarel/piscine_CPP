@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:43:31 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 16:43:19 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:12:54 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 // =========================================================== CONSTRUCTOR
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : 
-		AForm("ShruberryCreationForm", 25, 5),
+		AForm("PresidentialPardonForm", 25, 5),
         _target(target) {
 	return;	
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) :
-	AForm("ShruberryCreationForm", 25, 5) {
+	AForm("PresidentialPardonForm", 25, 5) {
+		*this = src;
 	return;
 }
 

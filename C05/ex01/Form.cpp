@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:06:40 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/17 12:24:15 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:03:23 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ Form::Form(std::string n, int g1, int g2) : _name(n), _sign(false), _reqGrade_si
 }
 
 Form::Form(const Form& src) : 
-        _name(src._name), 
-        _sign(src._sign), 
+        _name(src._name),
         _reqGrade_sign(src._reqGrade_sign), 
         _reqGrade_exec(src._reqGrade_exec) {
     // std::cout << "Form copy constructor called." << std::endl;
+    *this = src;
     return;
 }
 
