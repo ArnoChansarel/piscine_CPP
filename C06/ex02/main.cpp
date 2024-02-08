@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:25:27 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/09 18:34:54 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:03:28 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void identify_ref(Base& p) {
 }
 
 int main() {
-
-	srand(time(NULL));
+    
+    std::srand(std::time(nullptr));
     Base* n1 = generate();
     identify_ptr(n1);
     identify_ref(*n1);

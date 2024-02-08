@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:07:30 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/06 16:28:53 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/08 16:27:34 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,24 @@ std::string     getInput(int argc, char **argv) {
     return str;
 }
 
-// EN CHANTIER -> MANQUE JACOBSTHAL + LIST CONTAINER + PARSING + HANDLING ARGS&STRING INPUT
+// EN CHANTIER -> MANQUE JACOBSTHAL + LIST CONTAINER + PARSING
+// Erreur si input termine par spaces
+// check pour length 3 et moins. a partir de 4, on peut appliquer le insertionSort
+// 6 8 1 2 222 111 50 9 3 44 101 100 99
 int main(int argc, char **argv) {
     
     if (argc > 1) {
-        int array[] = {6, 8, 1, 2, 222, 111, 50, 9, 3, 44, 100};
-        // int array[] = {3, 5, 9, 7, 100, 4, 1};
-
-        std::vector<int> v(array, array + sizeof(array) / sizeof(array[0]));
+        // int array[] = {6, 8, 1, 2, 222, 111, 50, 9, 3, 44, 100};
 
         PmergeMe a(getInput(argc, argv));
-        a.executeAlgo(v);
+
+        try {
+            a.parseInput();
+            a.execute();
+        } catch (std::exception& e) {
+            std::cout << e.what() << std::endl;
+            return 1;
+        }
 
     } else {
         std::cout << "Error on args." << std::endl;

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:51:42 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/07 09:57:30 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/07 20:00:42 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <vector>
 #include <list>
 #include <ctime>
+#include <sstream>
 
 class PmergeMe {
    
@@ -25,15 +26,26 @@ class PmergeMe {
 		PmergeMe& operator=(const PmergeMe& src);
 		~PmergeMe();
 
-		void parseInput(std::string);
-		void executeAlgo(std::vector<int>& vec);
-		// void insertSortVec(std::vector<int>& vec);
+		void 	execute();
+		
+		void	MergeInsertionSortVec();
+		void    sortPairsVec(std::vector<int>& vec, int left, int right);
+		void 	recursivePairsSortVec(std::vector<int>::iterator start, std::vector<int>::iterator end);
+		void 	insertSortVec();
+		
+		void 	MergeInsertionSortList();
+		void    sortPairsList();
+		void 	recursivePairsSortList(std::list<int>::iterator start, std::list<int>::iterator end);
+		void 	insertSortList();
 
-		void    sortPairs(std::vector<int>& vec, int left, int right);
-		void	sortVec(std::vector<int>& vec);
+		void 	parseInput();
 		static bool	compare(int a, int b);
 
-		static void printVec(std::vector<int> v);
+		class NonNumberInputException : public std::exception {
+			const char* what() const throw() {
+				return "Error: Only positive number are accepted.";	
+			}
+		};
 
 	private:
 		PmergeMe();
@@ -41,3 +53,14 @@ class PmergeMe {
 		std::vector<int>	_vector;
 		std::list<int>		_list;
 };
+
+template <typename T>
+void	printContainer(T chain) {
+	
+	for (typename T::iterator it = chain.begin(); it != chain.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+	
+	return;	
+}

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 20:12:39 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/16 17:13:46 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:09:02 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 // ========================================================== CONSTRUCTORS
 
 // ========================================================== MEMBER FUNCTION
+
+bool hasComa(std::string input) {
+    int c = 0;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == '.')
+            c++;
+    }
+    return (c > 1);
+}
 
 bool isChar(std::string l) {
     
@@ -216,6 +225,8 @@ static bool LitToDouble(std::string literal) {
 
 void ScalarConverter::convert(std::string literal) {
 
+    if (hasComa(literal))
+        throw ScalarConverter::WrongTypeException();
     if (LitToInt(literal))
         return;
     if (LitToChar(literal))
