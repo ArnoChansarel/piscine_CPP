@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:55:34 by achansar          #+#    #+#             */
-/*   Updated: 2024/04/26 17:14:37 by achansar         ###   ########.fr       */
+/*   Updated: 2024/04/27 17:16:19 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,19 @@ PmergeMe::~PmergeMe() {
 
 void PmergeMe::execute() {
 
-    clock_t start = clock();
-
+    clock_t startVec = clock();
     MergeInsertionSortVec();
+    clock_t stopVec = clock();
+    
+    clock_t startLst = clock();
     MergeInsertionSortList();
+    clock_t stopLst = clock();
 
-    clock_t stop = clock();
+    double tVec = static_cast<double>(stopVec - startVec) / CLOCKS_PER_SEC * 1e6;
+    double tLst = static_cast<double>(stopLst - startLst) / CLOCKS_PER_SEC * 1e6;
     
-    double t = static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1e6;
-    
-    std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector : " << t << " us" << std::endl;
+    std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector : " << tVec << " us" << std::endl;
+    std::cout << "Time to process a range of " << _list.size() << " elements with std::list : " << tLst << " us" << std::endl;
     return;
 }
 
@@ -91,26 +94,25 @@ void PmergeMe::recursivePairsSortVec(std::vector<int>::iterator start, std::vect
 }
 
 void PmergeMe::insertSortVec() {
-
-    for (std::vector<int>::iterator it = _vector.end() - 1; it >= _vector.begin(); it--) {
-        if (*it < *(it - 1) && it != _vector.begin()) {
-            std::swap(*it, *(it - 1));
+    for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); ++it) {
+        for (std::vector<int>::iterator jt = it; jt != _vector.begin() && *(jt - 1) > *jt; --jt) {
+            std::swap(*(jt - 1), *jt);
         }
     }
-    return;
 }
 
 void PmergeMe::MergeInsertionSortVec() {
 
+    int odd = -1;
+    if (_vector.size() % 2) {
+        odd = _vector.back();
+        _vector.pop_back();
+    }
+    
     if (_vector.size() > 3) {
         std::vector<int> a, b;
         // std::vector<int> b;
 
-        int odd = -1;
-        if (_vector.size() % 2) {
-            odd = _vector.back();
-            _vector.pop_back();
-        }
 
         // std::cout << "STEP 0 : The input before sort pairs is ";
         // printContainer(_vector);
@@ -124,8 +126,8 @@ void PmergeMe::MergeInsertionSortVec() {
         // printContainer(_vector);
         recursivePairsSortVec(_vector.begin() + 1, _vector.end() - 1);
         // std::cout << std::endl << "STEP 0ter : The input after sort pairs is ";
-        std::cout << "AFTER RECURSIVE VECTOR\n";
-        printContainer(_vector);
+        // std::cout << "AFTER RECURSIVE VECTOR\n";
+        // printContainer(_vector);
 
         for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); it++) {
             b.push_back(*it);
@@ -141,10 +143,10 @@ void PmergeMe::MergeInsertionSortVec() {
         // std::cout << std::endl;
 
 
-        std::cout << "vec b : ";
-        printContainer(b);
-        std::cout << "vec a : ";
-        printContainer(a);
+        // std::cout << "vec b : ";
+        // printContainer(b);
+        // std::cout << "vec a : ";
+        // printContainer(a);
 
 
         _vector.push_back(b[0]);
@@ -153,12 +155,12 @@ void PmergeMe::MergeInsertionSortVec() {
         _vector.push_back(b[1]);
         insertSortVec();
 
-        std::cout << "STEP 0 : ";
-        printContainer(_vector);
-        std::cout << "STEP 1 : ADD 4th element in a insertion zone of 3 : ";
-        printContainer(_vector);
+        // std::cout << "STEP 0 : ";
+        // printContainer(_vector);
+        // std::cout << "STEP 1 : ADD 4th element in a insertion zone of 3 : ";
+        // printContainer(_vector);
 
-        std::cout << std::endl << "STEP 2 : ADD a B with insertion sort, then add A" << std::endl;
+        // std::cout << std::endl << "STEP 2 : ADD a B with insertion sort, then add A" << std::endl;
 
         for (int i = 2; i < a.size(); i++) {
             _vector.push_back(b[i]);
@@ -170,23 +172,37 @@ void PmergeMe::MergeInsertionSortVec() {
             // printContainer(_vector);
         }
 
-        if (odd > 0) {
-            _vector.push_back(odd);
-            insertSortVec();
-        }
-        std::cout << "Sorted : ";
-        printContainer(_vector);
     } else {
         insertSortVec();
-        std::cout << "Sorted : "; 
-        printContainer(_vector);
     }
+    if (odd > 0) {
+        _vector.push_back(odd);
+        insertSortVec();
+    }
+    std::cout << "Sorted VEC : ";
+    printContainer(_vector);
     return;
 }
 
 // ===================================================================== MEMBER FUNCTIONS - LIST
 
 void PmergeMe::insertSortList() {
+    
+    if (_list.size() == 3) {// covering one exception case
+        for (std::list<int>::iterator it = _list.begin(); it != _list.end(); ++it) {
+            for (std::list<int>::iterator jt = it; jt != _list.begin(); --jt) {
+                std::list<int>::iterator prev = jt;
+                --prev;
+
+                if (*jt < *prev) {
+                    std::swap(*jt, *prev);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+    
     std::list<int>::iterator it = _list.end();
     if (it == _list.begin()) {
         return;
@@ -204,6 +220,7 @@ void PmergeMe::insertSortList() {
         --it;
     }
 }
+
 
 void 	PmergeMe::recursivePairsSortList(std::list<int>::iterator start, std::list<int>::iterator end) {
 
@@ -249,14 +266,15 @@ void    PmergeMe::sortPairsList() {
 
 void PmergeMe::MergeInsertionSortList() {
     
+    int odd = -1;
+    if (_list.size() % 2) {
+        odd = _list.back();
+        _list.pop_back();
+    }
+    
     if (_list.size() > 3) {
         std::list<int> a, b;
         
-        int odd = -1;
-        if (_list.size() % 2) {
-            odd = _list.back();
-            _list.pop_back();
-        }
 
         sortPairsList();
         // std::cout << "After sort pair : ";
@@ -295,9 +313,9 @@ void PmergeMe::MergeInsertionSortList() {
         insertSortList();
         
         // std::cout << "STEP 0 : ";
-        printContainer(_list);
+        // printContainer(_list);
         // std::cout << "STEP 1 : ADD 4th element in a insertion zone of 3 : ";
-        printContainer(_list);
+        // printContainer(_list);
 
         // std::cout << std::endl << "STEP 2 : ADD a B with insertion sort, then add A" << std::endl;
 
@@ -311,17 +329,18 @@ void PmergeMe::MergeInsertionSortList() {
             std::advance(itA, 1);
         }
 
-        if (odd > 0) {
-            _list.push_back(odd);
-            insertSortList();
-        }
-        std::cout << "Sorted : "; 
-        printContainer(_list);
     } else {
         insertSortList();
-        std::cout << "Sorted : "; 
-        printContainer(_list);
+        // std::cout << "Sorted : "; 
+        // printContainer(_list);
     }
+
+    if (odd > 0) {
+        _list.push_back(odd);
+        insertSortList();
+    }
+    std::cout << "Sorted LIST: "; 
+    printContainer(_list);
     return;
 }
 
