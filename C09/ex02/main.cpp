@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:07:30 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/08 16:27:34 by achansar         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:17:44 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,11 @@ std::string     getInput(int argc, char **argv) {
 }
 
 // EN CHANTIER -> MANQUE JACOBSTHAL + LIST CONTAINER + PARSING
-// Erreur si input termine par spaces
 // check pour length 3 et moins. a partir de 4, on peut appliquer le insertionSort
 // 6 8 1 2 222 111 50 9 3 44 101 100 99
 int main(int argc, char **argv) {
     
-    if (argc > 1) {
+    if (argc > 2) {
         // int array[] = {6, 8, 1, 2, 222, 111, 50, 9, 3, 44, 100};
 
         PmergeMe a(getInput(argc, argv));

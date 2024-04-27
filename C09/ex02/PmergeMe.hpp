@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:51:42 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/07 20:00:42 by achansar         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:16:58 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ class PmergeMe {
 		class NonNumberInputException : public std::exception {
 			const char* what() const throw() {
 				return "Error: Only positive number are accepted.";	
+			}
+		};
+
+		class ShortListException : public std::exception {
+			const char* what() const throw() {
+				return "Error: You need at least 2 numbers execute the sorting algorithm.";	
 			}
 		};
 

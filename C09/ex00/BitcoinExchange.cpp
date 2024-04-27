@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:10:15 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/01 16:58:36 by achansar         ###   ########.fr       */
+/*   Updated: 2024/04/16 18:30:43 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ BitcoinExchange::BitcoinExchange() {
 }
 
 BitcoinExchange::BitcoinExchange(const std::string db_file) {
-	getDatabase(db_file);
 	_maxYear = getCurrentYear();
+	getDatabase(db_file);
 	return;
 }
 
@@ -180,20 +180,28 @@ void BitcoinExchange::getDatabase(const std::string db_file) {
 
 	if (inf.is_open()) {
 		std::getline(inf, line);
-		if (!s.compare("date,exchange_rate"))
+		if (!s.compare("date,exchange_rate")) {
+			std::cout << "OUT1\n";
 			throw WrongDatabaseException();
+		}
 
 		while (std::getline(inf, line)) {
 			std::size_t pos = line.find(s);
-			if (pos != 10 || !line[pos + s.length()])
+			if (pos != 10 || !line[pos + s.length()]) {
+				std::cout << "OUT2\n";
 				throw WrongDatabaseException();
+			}
 			else {
 				key = line.substr(0, 10);
 				value = std::stod(line.substr(11));
-				if (!isValidDate(key, _maxYear))
+				if (!isValidDate(key, _maxYear)) {
+					std::cout << "OUT3 on : " << key << " | " << value << " | while maxYear is " << _maxYear << std::endl;
 					throw WrongDatabaseException();
-				if (value < 0 || value > INT_MAX)
+				}
+				if (value < 0 || value > INT_MAX) {
+					std::cout << "OUT4\n";
 					throw WrongDatabaseException();
+				}
 				_data[key] = value;
 			}
 		}

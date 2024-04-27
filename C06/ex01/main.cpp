@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:38:19 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/16 17:19:02 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:07:53 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int main() {
 
     stc = Serializer::deserialize(unptr);
     printStruct(stc);
+    delete stc;
     return 0;
 }

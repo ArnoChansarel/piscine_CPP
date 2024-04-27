@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:03:47 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/02 18:05:32 by achansar         ###   ########.fr       */
+/*   Updated: 2024/04/16 18:34:12 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void RPN::readRPN() {
     void (RPN::*operations[4])() = {&RPN::addRPN, &RPN::subRPN, &RPN::multRPN, &RPN::divRPN};
     
     try {
-        for (std::string::iterator it = _input.begin(); *it != '\0'; it++) {//     apparently there's no '\0' usally. why here ?
+        for (std::string::iterator it = _input.begin(); *it != '\0'; it++) {
             while (std::isspace(*it)) {
                 it++;
             }

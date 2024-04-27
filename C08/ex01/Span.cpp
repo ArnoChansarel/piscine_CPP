@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:52:54 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/16 19:19:30 by achansar         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:51:35 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,7 @@ unsigned int Span::shortestSpan() const {
 
 		std::sort(tmp._vector.begin(), tmp._vector.end());
 		std::adjacent_difference(tmp._vector.begin(), tmp._vector.end(), spans.begin());
-		// std::cout << "In spans : ";
-		// 	for (std::vector<int>::const_iterator i = spans.begin(); i != spans.end(); i++) {
-		// 	std::cout << *i << " "; 
-		// }
-		// std::cout << std::endl << std::endl;
-		
+	
 		return *std::min_element(spans.begin(), spans.end());
 	} else {
 		throw EmptyVectorException();
@@ -91,6 +86,12 @@ unsigned int Span::shortestSpan() const {
 void Span::printSpan() const {
 
 	for (std::vector<int>::const_iterator i = _vector.begin(); i != _vector.end(); i++) {
+		std::cout << *i << " "; 
+	}
+	std::cout << std::endl;
+	Span tmp(*this);	
+	std::sort(tmp._vector.begin(), tmp._vector.end());
+	for (std::vector<int>::const_iterator i = tmp._vector.begin(); i != tmp._vector.end(); i++) {
 		std::cout << *i << " "; 
 	}
 	std::cout << std::endl;

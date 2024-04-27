@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:31:57 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/16 17:44:11 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:06:59 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void print_array(T* a, size_t l) {
     }
 }
 
-//                         A VIRER/remplacer
 template <typename T>
 void	increment(T &elem)
 {

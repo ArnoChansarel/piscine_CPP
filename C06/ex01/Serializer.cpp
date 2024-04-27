@@ -6,11 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:38:36 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/09 16:57:17 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:17:28 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+
+// ========================================================== CONSTRUCTORS
 
 Serializer::Serializer(){
     return;
@@ -28,6 +30,8 @@ Serializer& Serializer::operator=(const Serializer& src) {
 Serializer::~Serializer() {
     return;
 }
+
+// ========================================================== MEMBER FUNCTION
     
 uintptr_t Serializer::serialize(Data* ptr) {
     uintptr_t rtr = reinterpret_cast<uintptr_t>(ptr);

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:23:45 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/11 14:31:11 by achansar         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:12:21 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typename T::iterator easyfind(T& a, int b) {
     
     typename T::iterator found;
     
-    found = std::find(a.begin(), a.end(), b);// why is a.end() different than the last element ?
-    if (found == a.end())//                     because end() has a special value that indicate iterator went after last item
+    found = std::find(a.begin(), a.end(), b);
+    if (found == a.end())
         throw NotFoundException();
     return found;
 }

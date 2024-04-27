@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:49:30 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/12 14:12:49 by achansar         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:52:07 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 class Span {
 
     public:
-        Span();
         Span(unsigned int N);
         Span(const Span& src);
         Span& operator=(const Span& src);
@@ -46,6 +45,7 @@ class Span {
         };
 
     private:
+        Span();
         unsigned int        _N;
         std::vector<int>    _vector;
 };

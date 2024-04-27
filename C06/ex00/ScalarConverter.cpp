@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 20:12:39 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/08 18:09:02 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:43:54 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,33 @@
 
 // ========================================================== CONSTRUCTORS
 
+ScalarConverter::ScalarConverter() {
+    return;
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& src) {
+    *this = src;
+    return;
+}
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src) {
+    return *this;
+}
+
+ScalarConverter::~ScalarConverter() {
+    return;
+}
+
 // ========================================================== MEMBER FUNCTION
 
 bool hasComa(std::string input) {
     int c = 0;
     for (int i = 0; i < input.length(); i++) {
-        if (input[i] == '.')
+        if (input[i] == '.') {
+            if (!input[i + 1] || !isdigit(input[i + 1]))
+                return true;
             c++;
+        }
     }
     return (c > 1);
 }
@@ -140,6 +160,24 @@ static bool LitToFloat(std::string literal) {
     // std::cout << "Using float convert" << std::endl;
         float l_f = std::stof(literal);
         
+        bool dec = false;
+        int i = 0;
+        while (literal[i]) {
+            if (literal[i] == '.')
+                break;
+            i++;
+        }
+
+        if (literal[i] == '.') {
+            while (literal[i]) {
+                if (literal[i] >= 49 && literal[i] <= 57) {
+                    dec = true;
+                    break;
+                }
+                i++;
+            }
+        }
+        
         if (literal == "nanf" || literal == "+inff" || literal == "-inff") {
             std::cout   << "char: impossible\nint: impossible" << std::endl;
         } else {
@@ -160,7 +198,10 @@ static bool LitToFloat(std::string literal) {
         std::cout << "float : " << literal << std::endl;
 
         double l_d = static_cast<double>(l_f);
-        std::cout << "double : " << l_d << std::endl;
+        if (dec)
+            std::cout << "double : " << l_d << std::endl;
+        else
+            std::cout << "double : " << l_d << ".0" << std::endl;
         return true;
     }
     return false;

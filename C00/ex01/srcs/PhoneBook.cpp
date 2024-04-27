@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 16:59:50 by achansar          #+#    #+#             */
-/*   Updated: 2023/07/28 13:32:20 by achansar         ###   ########.fr       */
+/*   Updated: 2024/04/10 11:18:49 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void PhoneBook::askInfos(const char *str, int i, int j)
             std::cout << "EOF flag set" << std::endl;
             exit(1);
         }
-        // printf("str = %s\n", str);
         if (userInput == "") {
             std::cout << "Empty string. Try again." << std::endl;
             continue;

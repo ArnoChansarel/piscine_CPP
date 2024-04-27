@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:49:53 by achansar          #+#    #+#             */
-/*   Updated: 2023/12/27 12:59:56 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/14 18:05:33 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int main() {
     delete deepCopy;
     delete deepCopy2;
     delete src;
-    system("leaks Materia");
+    // system("leaks Materia");
     return 0;
 }

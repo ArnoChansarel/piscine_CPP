@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:53:18 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/10 16:16:17 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:27:11 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class Array {
         ~Array();
 
         unsigned int size() const;
-        T& operator[](unsigned int i) const;
+        T& operator[](unsigned int i);
+        const T& operator[](unsigned int i) const;
         
     private:
         T*              _array;
@@ -57,7 +58,7 @@ Array<T>& Array<T>::operator=(const Array& src) {
 
 		_array = new T[_n]();
 		for (int i = 0; i < _n; i++) {
-			_array[i] = src._array[i];
+			_array[i] = src[i];
 		}
 	}
 	return *this;
@@ -65,16 +66,21 @@ Array<T>& Array<T>::operator=(const Array& src) {
 
 template <typename T>
 Array<T>::~Array() {
-	unsigned int l = size();
     delete[] _array;
 	return;
 }
 
 template <typename T>
-T& Array<T>::operator[](unsigned int i) const {
+T& Array<T>::operator[](unsigned int i) {
 
-    // std::cout << "hello\n";
-    // std::cout << "size = " << size() << " and i = " << i << std::endl;
+    if (i >= size())
+        throw std::out_of_range("Index out of bounds in Array");
+	return _array[i];
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int i) const {
+
     if (i >= size())
         throw std::out_of_range("Index out of bounds in Array");
 	return _array[i];

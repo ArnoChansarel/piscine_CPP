@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:25:27 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/08 18:03:28 by achansar         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:43:41 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Base* generate(void) {
     }
 }
 
-void identify_ptr(Base* p) {
+void identify(Base* p) {
     A* a = dynamic_cast<A*>(p);
     if (a != nullptr) {
         std::cout << "A" << std::endl;
@@ -37,9 +37,23 @@ void identify_ptr(Base* p) {
     }
 }
 
-void identify_ref(Base& p) {
-    std::string type = typeid(p).name();
-    std::cout << type[1] << std::endl;
+void identify(Base& p) {
+
+    try {
+        A& a = dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+    } catch (std::exception& e) {}
+    
+    try {
+        B& b = dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+    } catch (std::exception& e) {}
+
+    try {
+        C& c = dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+    } catch (std::exception& e) {}
+    
     return;
 }
 
@@ -47,8 +61,8 @@ int main() {
     
     std::srand(std::time(nullptr));
     Base* n1 = generate();
-    identify_ptr(n1);
-    identify_ref(*n1);
+    identify(n1);
+    identify(*n1);
     delete n1;
     return 0;
 }

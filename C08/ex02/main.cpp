@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:39:43 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/14 15:57:46 by achansar         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:07:45 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ int main() {
 		mstack.push(5);
 		mstack.push(17);
 
-		std::cout << mstack.top() << std::endl;
+		
+		std::cout << "Top : " << mstack.top() << std::endl;
 
 		mstack.pop();
 
-		std::cout << mstack.size() << std::endl;
+		std::cout << "Size : " << mstack.size() << std::endl;
 
 		mstack.push(3);
 		mstack.push(5);
@@ -45,6 +46,7 @@ int main() {
 		++it;
 		--it;
 
+		std::cout << "Print : \n";
 		while (it != ite)
 		{
 			std::cout << *it << std::endl;
@@ -60,11 +62,11 @@ int main() {
 		mstack.push_back(5);
 		mstack.push_back(17);
 
-		std::cout << mstack.back() << std::endl;
+		std::cout << "Top : " << mstack.back() << std::endl;
 
 		mstack.pop_back();
 
-		std::cout << mstack.size() << std::endl;
+		std::cout << "Size : " << mstack.size() << std::endl;
 
 		mstack.push_back(3);
 		mstack.push_back(5);
@@ -77,24 +79,25 @@ int main() {
 		++it;
 		--it;
 
+		std::cout << "Print : \n";
 		while (it != ite)
 		{
 			std::cout << *it << std::endl;
 			++it;
 		}
 		}
-		putString("Test with Vector");
+		putString("\nTest with Vector");
 	{
 		std::vector<int> mstack;
 
 		mstack.push_back(5);
 		mstack.push_back(17);
 
-		std::cout << mstack.back() << std::endl;
+		std::cout << "Top : " << mstack.back() << std::endl;
 
 		mstack.pop_back();
 
-		std::cout << mstack.size() << std::endl;
+		std::cout << "Size : " << mstack.size() << std::endl;
 
 		mstack.push_back(3);
 		mstack.push_back(5);
@@ -107,6 +110,7 @@ int main() {
 		++it;
 		--it;
 
+		std::cout << "Print : \n";
 		while (it != ite)
 		{
 			std::cout << *it << std::endl;

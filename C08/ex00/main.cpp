@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:50:59 by achansar          #+#    #+#             */
-/*   Updated: 2024/01/11 14:37:29 by achansar         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:20:39 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int main() {
     
     // Initialize vector iterator
-    int array[] = {1, 2, 3, 4, 5};
+    int array[] = {1, 2, 3, 4, 5, 2};
     int arr_end = sizeof(array) / sizeof(array[0]);
-    
     // TWO WAYS TO INITIALIZE A VECTOR
     std::vector<int> vector(array, array + arr_end);// This
     // std::vector<int> vector(42, 100);//             Or this
@@ -34,7 +33,7 @@ int main() {
     }
 
     try{
-        vecit = easyfind(vector, 55);
+        vecit = easyfind(vector, 100);
         std::cout << "Value " << *vecit << " found." << std::endl;
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;

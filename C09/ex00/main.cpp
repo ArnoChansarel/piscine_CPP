@@ -6,17 +6,11 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:56:26 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/01 15:37:06 by achansar         ###   ########.fr       */
+/*   Updated: 2024/04/12 15:32:53 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-
-/*
-parse database
-
-*/
 
 
 int main(int argc, char **argv) {
