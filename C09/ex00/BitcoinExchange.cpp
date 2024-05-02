@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:10:15 by achansar          #+#    #+#             */
-/*   Updated: 2024/04/16 18:30:43 by achansar         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:42:09 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,33 @@ bool isLeap(int y)
 		 (y % 400 == 0)); 
 }
 
-bool checkDate(int y, int m, int d, const int maxYear) {
+bool BitcoinExchange::checkDate(int y, int m, int d, const int maxYear, bool isDatabase) {
 
-	const int minYear = 2009;
+	if (!isDatabase) {
+		std::string minDate = _data.begin()->first;
 
-	if (y < minYear || y > maxYear || m < 1 || m > 12 || d < 1 || d > 31)
+		int i = 0, j = 0;
+		std::string temp;
+		int array[3] = {};
+
+		while (minDate[i]) {
+			if (minDate[i] != '-') {
+				temp += minDate[i];
+			} else {
+				array[j] = std::stoi(temp);
+				temp.clear();
+				j++;
+			}
+			i++;
+		}
+		array[j] = std::stoi(temp);
+
+		if (y < array[0] || m < array[1] || d < array[2]) {
+			return false;
+		}
+	}
+
+	if (y < 2009 || y > maxYear || m < 1 || m > 12 || d < 1 || d > 31)
 		return false;
 	if (m == 2) {
 		if (isLeap(y)) { return (d <= 29); } else { return (d <= 28); }
@@ -43,10 +65,11 @@ bool checkDate(int y, int m, int d, const int maxYear) {
 	if (m == 4 || m == 6 || m == 9 || m == 11) {
 		return (d <= 30);
 	}
+	
 	return true;
 }
 
-bool isValidDate(const std::string& dateString, const int maxYear) {
+bool BitcoinExchange::isValidDate(const std::string& dateString, const int maxYear, bool isDatabase) {
 
 	int i = 0, j = 0;
 	std::string temp;
@@ -63,7 +86,8 @@ bool isValidDate(const std::string& dateString, const int maxYear) {
 		i++;
 	}
 	array[j] = std::stoi(temp);
-	return checkDate(array[0], array[1], array[2], maxYear);
+
+	return checkDate(array[0], array[1], array[2], maxYear, isDatabase);
 }
 
 // ============================================================================= CONSTRUCTORS
@@ -99,7 +123,8 @@ double BitcoinExchange::convertRate(std::string date, double btc) {
 	
 	std::map<std::string, double>::iterator it;
 	
-	for (it = _data.begin() ; it != _data.end() ; it++) {	
+	for (it = _data.begin() ; it != _data.end() ; it++) {
+
 		if (!date.compare(it->first)) {
 			return it->second;
 		} else if (it->first >= _data.lower_bound(date)->first) {
@@ -127,10 +152,15 @@ double BitcoinExchange::convertValue(std::string v, std::string line) {
 void BitcoinExchange::getBtcValue(std::string date, std::string v, std::string line) {
 
 	double btc = convertValue(v, line);
+	
+
 	if (btc < 0)
 		return;
 	else {
+		
 		double rate = convertRate(date, btc);
+		
+		
 		std::cout << date << " => " << v << " = " << btc * rate << std::endl;
 	}
 	return;
@@ -151,17 +181,29 @@ bool BitcoinExchange::convertInput(char *input) {
 		if (line.compare("date | value"))
 			throw WrongInputException();
 
+	
 		while (std::getline(inf, line)){
 			std::size_t pos = line.find(separator);
+			
 			if (pos != 10 || !line[pos + separator.length()])
 				std::cout << "Error: bad input => " << line << std::endl;
 			else {
 				date = line.substr(0, 10);
 				value = line.substr(pos + separator.length());
-				if (!isValidDate(date, _maxYear))
-					std::cout << "Error: bad input => " << line << std::endl;
-				else
-					getBtcValue(date, value, line);
+			
+				try {
+					if (!isValidDate(date, _maxYear, false)) {
+						std::cout << "Error: bad input => " << line << std::endl;
+					
+					}
+					else {
+					
+						getBtcValue(date, value, line);
+						
+					}
+				} catch(const std::exception& e) {
+					std::cerr << e.what() << std::endl;
+				}
 			} 
 		}
 	} else {
@@ -181,25 +223,25 @@ void BitcoinExchange::getDatabase(const std::string db_file) {
 	if (inf.is_open()) {
 		std::getline(inf, line);
 		if (!s.compare("date,exchange_rate")) {
-			std::cout << "OUT1\n";
+			// std::cout << "OUT1\n";
 			throw WrongDatabaseException();
 		}
 
 		while (std::getline(inf, line)) {
 			std::size_t pos = line.find(s);
 			if (pos != 10 || !line[pos + s.length()]) {
-				std::cout << "OUT2\n";
+				// std::cout << "OUT2\n";
 				throw WrongDatabaseException();
 			}
 			else {
 				key = line.substr(0, 10);
 				value = std::stod(line.substr(11));
-				if (!isValidDate(key, _maxYear)) {
-					std::cout << "OUT3 on : " << key << " | " << value << " | while maxYear is " << _maxYear << std::endl;
+				if (!isValidDate(key, _maxYear, true)) {
+					// std::cout << "OUT3 on : " << key << " | " << value << " | while maxYear is " << _maxYear << std::endl;
 					throw WrongDatabaseException();
 				}
 				if (value < 0 || value > INT_MAX) {
-					std::cout << "OUT4\n";
+					// std::cout << "OUT4\n";
 					throw WrongDatabaseException();
 				}
 				_data[key] = value;

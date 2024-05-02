@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:55:10 by achansar          #+#    #+#             */
-/*   Updated: 2024/02/01 15:43:51 by achansar         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:38:44 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,14 @@ class BitcoinExchange {
         void        getBtcValue(std::string date, std::string btc, std::string line);
         double      convertRate(std::string date, double btc);
         double      convertValue(std::string v, std::string line);
+        bool        checkDate(int y, int m, int d, const int maxYear, bool isDatabase);
+        bool        isValidDate(const std::string& dateString, const int maxYear, bool isDatabase);
 
     private:
         BitcoinExchange();
         std::map<std::string, double>   _data;
         int                             _maxYear;
+        int                             _minYear;
+        int                             _minMonth;
+        int                             _minDay;
 };
